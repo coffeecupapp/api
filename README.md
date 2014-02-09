@@ -1,6 +1,6 @@
 # Introduction to the CoffeeCup API
 
-CoffeeCup provides two API interfaces, serving two distinct roles. If you need to access and manipulate your daily timesheet the [Time Tracking API](https://github.com/coffeecupapp/api/blob/master/Sections/Time%20Tracking.md) fits the bill. Notable uses of the [Time Tracking API](https://github.com/coffeecupapp/api/blob/master/Sections/Time%20Tracking.md) are the widgets we provide for PC and Mac as well as other third party timesheet software integrations.
+CoffeeCup provides two API interfaces, serving two distinct roles. If you need to access and manipulate your daily timesheet the [Time Tracking API](Sections/Time%20Tracking.md) fits the bill. Notable uses of the [Time Tracking API](Sections/Time%20Tracking.md) are the widgets we provide for PC and Mac as well as other third party timesheet software integrations.
 
 If you need to access and edit your projects, clients, users and tasks the extended API is your choice. You can use this to mass import your existing projects setup, add users and generally integrate with your existing back-office setup.
 
@@ -20,9 +20,83 @@ You may also want to check out the open-source libraries for the CoffeeCup API b
 
 Watch the CoffeeCup API repository to receive email notification of updates to the API documentation. Find out when we've made tweaks to our documentation simply by clicking the eye symbol/watch selection in the upper right of this page.
 
+## Help us towards a better API
+
+The CoffeeCup API has moved to Github so you could actively participate in helping us making the API better. If you have any requests or you found a bug, you can use Github issues to let us know. You can also fork the docs and send a pull request with improvements
+
 ## Share Your Creation
 
 If you've built something interesting with the CoffeeCup API or the [CoffeeCup Platform](http://www.coffeecupapp.com/platform), share the love! Created a library or other cool connector another CoffeeCup user might find useful? Add it to our [Community Creations and Hacks page](https://github.com/coffeecupapp/api/wiki/Community-Creations-&-Hacks), and contribute to the solid list of great projects people have made. If it's a connector between another app and ours, ping us at [support@coffeecupapp.com](mailto:support@coffeecupapp.com) — we may be able to list it on our [Add-ons](http://www.coffeecupapp.com/add-ons) page.
+
+## Example requests
+
+The example requests here are done using a command line tool called [cURL](http://en.wikipedia.org/wiki/CURL). If you want to try the requests out yourself, you can download cURL from [here](http://curl.haxx.se/download.html). It is available for all possible operating systems.
+
+Under Ubuntu installing cURL is very easy:
+
+```shell
+sudo apt-get install curl
+```
+
+## CORS
+
+If you wish to use the API using CORS, we'll need to whitelist you first. Please send us a note at support@coffeecupapp.com to whitelist your domain(s).
+
+## Successful requests
+
+When request is successful (2xx), a nested response object is returned. Fields which value is NULL are not in the response.
+
+Example request
+
+```shell
+curl -v -u admin:admin -X GET http://dev.coffeecupapp.com/api/time_entries
+```
+Response
+
+```json
+{
+    "success": true,
+    "message": "Record(s) Found",
+    "data": {
+        "meta": {
+            "total": 20
+        },
+        "time_entries": [
+            {
+                "id": 1,
+                "starttime": "2014-02-08 21:55:45",
+                "endtime": "2014-02-08 22:55:30",
+                ...
+            },
+            ...
+        ]
+    }
+}
+```
+
+##Failed requests
+
+If a create or update action failed, HTTP status code 404 and an array of localized error messages will be returned.
+
+```shell
+curl -v -u admin:admin \
+	-H 'Content-type: application/json' \
+	-d '{"time_entry":{"description":"New time entry","created_with":"API example code"}}' \
+	-X POST http://dev.coffeecupapp.com/api/time_entries/1/foo
+```
+
+Response
+
+```json
+{
+    "success": false,
+    "message": "Method Not Allowed",
+    "data": {
+        "errorCode": "405",
+        "message": "Method Not Allowed"
+    }
+}
+```
 
 ## Authorization
 
@@ -32,9 +106,9 @@ CoffeeCup will check your role on each request, and actions that are unavailable
 
 ## Supported Data Formats
 
-The CoffeeCup API supports both XML and JSON data formats.
+The API accepts only JSON requests. Please make sure you're setting Content-type: `application/json` in your request header. Each request returns a JSON-encoded body.
 
-For an XML request, send `application/xml` in the `Accept` and `Content-Type` headers. Send `application/json` for JSON responses. All examples in this documentation assume XML input and output, however JSON output follows similar structure to the XML documented.
+The result of each action is communicated via standard HTTP response codes.
 
 ## Throttle Limit - HTTP 503
 
