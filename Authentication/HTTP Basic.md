@@ -1,18 +1,29 @@
+# NOTE
+
+This interface is not released yet, for the time being use `admin:admin` to login:
+
+```http
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
+```
+
+
 # HTTP Basic Authentication
 
 HTTP Basic authentication is the oldest and simplest way to start working with the CoffeeCup API. Requests include the username and password of the user authenticating. HTTPS is required for accessing the API.
 
 ## Making a request
 
-To interact with CoffeeCup in this example we're going to use XML. To make requests in XML, specify application/xml for your Content-Type and Accept headers. A simple example with [curl](http://en.wikipedia.org/wiki/CURL):
+To interact with CoffeeCup in this example we're going to use JSON. To make requests in JSON, specify application/json for your Content-Type and Accept headers. A simple example with [curl](http://en.wikipedia.org/wiki/CURL):
 
 ```sh
-curl -H 'Content-Type: application/xml' -H 'Accept: application/xml' -u "user@email.com:password" https://subdomain.coffeecupapp.com/account/who_am_i
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -u "my@email.com:password" https://subdomain.coffeecupapp.com/account/who_am_i
 ```
 
 Successful requests return HTTP response codes in the 2xx range (e.g. 200, 201, etc.). Other response codes indicate a failed request or missing resource, in which case an error message may be provided. When successful, the above request returns:
 
-```xml
+```json
 <?xml version="1.0" encoding="UTF-8"?>
 <hash>
   <company>
@@ -33,12 +44,12 @@ Successful requests return HTTP response codes in the 2xx range (e.g. 200, 201, 
 *Firefox Users*: We recommend using the [RestClient plugin](https://addons.mozilla.org/en-US/firefox/addon/restclient/) to help you make requests to and see responses from the CoffeeCup API. You need to set up your request headers with the following:
 
 ```http
-Accept: application/xml
-Content-Type: application/xml
+Accept: application/json
+Content-Type: application/json
 Authorization: Basic (insert your authentication string here)
 ```
 
-Your authentication string is a base64 encoded version of your credentials. You can generate this in Ruby:
+Your authentication string is a base64 encoded version of your credentials. You can generate this using this [base64 sample encoder](http://www.motobit.com/util/base64-decoder-encoder.asp) or in Ruby:
 
 ```http
 Base64.encode64("my@email.com:password").delete("\r\n")
