@@ -2,7 +2,15 @@
 
 ## Get All Contacts Of A Client
 
-GET `/api/clients/#{client_id}/contacts`
+`GET /api/clients/#{client_id}/contacts`
+
+Example request
+
+```shell
+curl -v -u admin:admin  \
+	-H "Content-type: application/json" \
+	-X GET http://dev.coffeecupapp.com/api/clients/1/contacts
+```
 
 HTTP Response: 200 Success
 
@@ -44,11 +52,9 @@ HTTP Response: 200 Success
 
 ## Create A New Clients Contact
 
-POST `/api/clients/#{client_id}/contacts`
+`POST /api/clients/#{client_id}/contacts`
 
 HTTP Response: 201 Created
-
-Location: `/api/clients/#{client_id}/contacts`
 
 You need to post the following:
 
@@ -74,11 +80,9 @@ You need to post the following:
 
 ## Update A Clients Contact
 
-PUT `/api/clients/#{client_id}/contacts/#{contact_id}`
+`PUT /api/clients/#{client_id}/contacts/#{contact_id}`
 
 HTTP Response: 200 OK
-
-Location: `/api/clients/#{client_id}/contacts/#{contact_id}`
 
 You may update selected attributes for a contact.
 
@@ -93,6 +97,6 @@ You may update selected attributes for a contact.
 
 ## Delete A Contact
 
-DELETE `/api/clients/#{client_id}/contacts/#{contact_id}`
+`DELETE /api/clients/#{client_id}/contacts/#{contact_id}`
 
 HTTP Response: 200 OK

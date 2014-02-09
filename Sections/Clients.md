@@ -2,7 +2,15 @@
 
 ## Get All Clients
 
-GET `/api/clients`
+`GET /api/clients`
+
+Example request
+
+```shell
+curl -v -u admin:admin  \
+	-H "Content-type: application/json" \
+	-X GET http://dev.coffeecupapp.com/api/clients
+```
 
 HTTP Response: 200 Success
 
@@ -88,13 +96,13 @@ HTTP Response: 200 Success
 
 You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
-GET `/api/clients?filter=[{"property": "modified", "value" : "2013-01-01 17:23", "operator": ">="}]`
+`GET /api/clients?filter=[{"property": "modified", "value" : "2013-01-01 17:23", "operator": ">="}]`
 
 HTTP Response: 200 Success
 
 You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
 
-GET `/api/clients?filter=[{"property": "created", "value" : "2013-01-01", "operator": ">="} , {"property": "created", "value" : "2015-01-31", "operator": "<="}]`
+`GET /api/clients?filter=[{"property": "created", "value" : "2013-01-01", "operator": ">="} , {"property": "created", "value" : "2015-01-31", "operator": "<="}]`
 
 HTTP Response: 200 Success
 
@@ -182,11 +190,9 @@ HTTP Response: 200 Success
 
 ## Create A New Client
 
-POST `/api/clients`
+`POST /api/clients`
 
 HTTP Response: 201 Created
-
-Location: `/api/clients`
 
 You need to post the following:
 
@@ -221,11 +227,9 @@ You need to post the following:
 
 ## Update A Client
 
-PUT `/api/clients/#{client_id}`
+`PUT /api/clients/#{client_id}`
 
 HTTP Response: 200 OK
-
-Location: `/api/clients/#{client_id}`
 
 You may update selected attributes for a client.
 
@@ -239,6 +243,6 @@ You may update selected attributes for a client.
 
 ## Delete A Client
 
-DELETE `/api/clients/#{client_id}`
+`DELETE /api/clients/#{client_id}`
 
 If client does not have associated projects or invoices CoffeeCup deletes it and returns HTTP Response: 200 OK otherwise client is not deleted and you'll get a HTTP Response: 400 Bad Request .

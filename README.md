@@ -1,6 +1,6 @@
 # Introduction to the CoffeeCup API
 
-CoffeeCup provides two API interfaces, serving two distinct roles. If you need to access and manipulate your daily timesheet the [Time Tracking API](Sections/Time%20Tracking.md) fits the bill. Notable uses of the [Time Tracking API](Sections/Time%20Tracking.md) are the widgets we provide for PC and Mac as well as other third party timesheet software integrations.
+CoffeeCup provides two API interfaces, serving two distinct roles. If you need to access and manipulate your daily timesheet the [Time Tracking API](http://git.reppa.net/coffeecup/api_docs/blob/master/Sections/Time%20Tracking.md) fits the bill. Notable uses of the [Time Tracking API](http://git.reppa.net/coffeecup/api_docs/blob/master/Sections/Time%20Tracking.md) are the widgets we provide for PC and Mac as well as other third party timesheet software integrations.
 
 If you need to access and edit your projects, clients, users and tasks the extended API is your choice. You can use this to mass import your existing projects setup, add users and generally integrate with your existing back-office setup.
 
