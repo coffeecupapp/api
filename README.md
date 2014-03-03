@@ -49,7 +49,7 @@ When request is successful (2xx), a nested response object is returned. Fields w
 Example request
 
 ```shell
-curl -v -u admin:admin -X GET http://dev.coffeecupapp.com/api/time_entries
+curl -v -u admin:admin -X GET http://dev.coffeecupapp.com/api/time_entry
 ```
 Response
 
@@ -58,10 +58,8 @@ Response
     "success": true,
     "message": "Record(s) Found",
     "data": {
-        "meta": {
-            "total": 20
-        },
-        "time_entries": [
+        "totalCount": 20,
+        "time_entry": [
             {
                 "id": 1,
                 "starttime": "2014-02-08 21:55:45",
