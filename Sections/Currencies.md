@@ -2,30 +2,34 @@
 
 ## Get All Currencies
 
-`GET /api/currencies`
+`GET /api/currency`
 
 Example request
 
 ```shell
 curl -v -u admin:admin  \
 	-H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/currencies
+	-X GET http://dev.coffeecupapp.com/api/currency
 ```
 
 HTTP Response: 200 Success
 
 ```json
 {
-    "success": true,
-    "message": "Record(s) Found",
-    "data": {
-        "meta": {
-            "total": 3
-        },
-        "currencies": [
-        ...
-        ]
-    }
+  "data" : {
+    "totalCount" : "1",
+    "currency" : [
+      {
+        "symbol" : "€",
+        "id" : 1,
+        "created" : "0000-00-00 00:00:00",
+        "label" : "EUR",
+        "modified" : "0000-00-00 00:00:00"
+      }
+    ]
+  },
+  "success" : true,
+  "message" : "Record(s) Found"
 }
 ```
 

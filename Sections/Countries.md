@@ -2,30 +2,34 @@
 
 ## Get All Countries
 
-`GET /api/countries`
+`GET /api/country`
 
 Example request
 
 ```shell
 curl -v -u admin:admin  \
 	-H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/countries
+	-X GET http://dev.coffeecupapp.com/api/country
 ```
 
 HTTP Response: 200 Success
 
 ```json
 {
-    "success": true,
-    "message": "Record(s) Found",
-    "data": {
-        "meta": {
-            "total": 3
-        },
-        "countries": [
-        ...
-        ]
-    }
+  "data" : {
+    "totalCount" : "1",
+    "country" : [
+      {
+        "id" : 1,
+        "tax" : 19,
+        "created" : "0000-00-00 00:00:00",
+        "label" : "Germany",
+        "modified" : "0000-00-00 00:00:00"
+      }
+    ]
+  },
+  "success" : true,
+  "message" : "Record(s) Found"
 }
 ```
 
