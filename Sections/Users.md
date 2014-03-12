@@ -9,7 +9,7 @@ Example request
 ```shell
 curl -v -u admin:admin  \
     -H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/user
+    -X GET http://dev.coffeecupapp.com/api/user
 ```
 
 HTTP Response: 200 Success
@@ -35,22 +35,22 @@ HTTP Response: 200 Success
         "timezone" : "Europe/Berlin",
         "role_index" : 0,
         "last_login_at" : "2014-02-08 17:12:19",
-        "email" : "1@2gu.,de",
+        "email" : "1@2gu.de",
         "beginning_of_week" : "monday",
         "hours_of_work": {
-        	"monday": "8",
-        	"tuesday": "8",
-        	"wednesday": "8",
-        	"thursday": "8",
-        	"friday": "4",
-        	"saturday": "0",
-        	"sunday": "0"
+            "monday": 8,
+            "tuesday": 8,
+            "wednesday": 8,
+            "thursday": 8,
+            "friday": 4,
+            "saturday": 0,
+            "sunday": 0
         },
         "user_score": {
-        	"current_week": "1200",
-        	"current_month": "5690"
+            "current_week": 1200,
+            "current_month": 5690
         }
-        "user_level": "5"
+        "user_level": 5
       },
       {
         ...
@@ -62,14 +62,39 @@ HTTP Response: 200 Success
 }
 ```
 
+
 ## Get All User of a certain project (1)
 
 `GET api/project/1/users`
+
+HTTP Response: 200 Success
 
 ## Grant a users (2) access to a certain project (1)
 
 `PUT api/project/1/users/2`
 
+HTTP Response: 200 Success
+
+```json
+{
+    "success": "true",
+    "message": "Subresource Added",
+    "data": {
+        ...
+    }
+}
+
 ## Revoke a users (2) access to a certain project (1)
 
 `DELETE api/project/1/users/2`
+
+HTTP Response: 200 Success
+
+```json
+{
+    "success": "true",
+    "message": "Sub-Resource Deleted",
+    "data": {
+        ...
+    }
+}
