@@ -38,6 +38,8 @@ HTTP Response: 200 Success
         "email" : "1@2gu.de",
         "beginning_of_week" : "monday",
         "hours_of_work": {
+            "id" : 1,
+            "user_id" : 1,
             "monday": 8,
             "tuesday": 8,
             "wednesday": 8,
@@ -47,9 +49,11 @@ HTTP Response: 200 Success
             "sunday": 0
         },
         "user_score": {
+            "id" : 1,
+            "user_id" : 1,
             "current_week": 1200,
             "current_month": 5690
-        }
+        },
         "user_level": 5
       },
       {
