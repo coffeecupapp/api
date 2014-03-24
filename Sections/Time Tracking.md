@@ -9,7 +9,7 @@ Example request
 ```shell
 curl -v -u admin:admin  \
     -H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/time_entry
+    -X GET http://dev.coffeecupapp.com/api/time_entry
 ```
 
 HTTP Response: 200 Success
@@ -38,7 +38,7 @@ HTTP Response: 200 Success
         "project_id" : 1,
         "comment" : "neuerer kommentar",
         "duration" : 120,
-        "running" : 1,
+        "running" : "true",
         "modified" : "2014-02-08 22:54:40"
       },
       {
@@ -140,7 +140,7 @@ HTTP Response: 200 Success
       "project_id" : 1,
       "comment" : "neuerer kommentar",
       "duration" : 120,
-      "running" : 1,
+      "running" : "true",
       "modified" : {
         "params" : [],
         "expression" : "NOW()"
