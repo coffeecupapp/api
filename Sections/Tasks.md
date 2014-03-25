@@ -31,7 +31,7 @@ HTTP Response: 200 Success
         "category_id" : 1,
         "created" : "2014-02-08 22:35:00",
         "label" : "code",
-        "billable_default" : 1,
+        "billable_default" : true,
         "modified" : "2014-02-08 22:35:00",
         "projects" : [
           {
@@ -166,7 +166,7 @@ You need to post the following:
 }
 ```
 
-## Update A Client
+## Update A Task Category
 
 `PUT /api/task_category/#{task_category_id}`
 
@@ -180,7 +180,6 @@ You may update selected attributes for a client.
 }
 ```
 
-## Delete A Client
+## Delete A Task Category
 
 `DELETE /api/task_category/#{task_category_id}`
-
