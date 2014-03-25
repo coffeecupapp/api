@@ -28,7 +28,7 @@ HTTP Response: 200 Success
           "category_id" : 1,
           "created" : "2014-02-08 22:35:00",
           "label" : "code",
-          "billable_default" : 1,
+          "billable_default":true,
           "modified" : "2014-02-08 22:35:00"
         },
         "task_id" : 1,
@@ -38,7 +38,7 @@ HTTP Response: 200 Success
         "project_id" : 1,
         "comment" : "neuerer kommentar",
         "duration" : 120,
-        "running" : "true",
+        "running" : true,
         "modified" : "2014-02-08 22:54:40"
       },
       {
