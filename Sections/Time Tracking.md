@@ -131,20 +131,7 @@ HTTP Response: 200 Success
   "data" : {
     "totalCount" : "1",
     "time_entry" : {
-      "starttime" : "",
-      "id" : 1,
-      "task_id" : 1,
-      "created" : "2014-02-08 22:31:18",
-      "user_id" : 1,
-      "endtime" : "",
-      "project_id" : 1,
-      "comment" : "neuerer kommentar",
-      "duration" : 120,
-      "running" : "true",
-      "modified" : {
-        "params" : [],
-        "expression" : "NOW()"
-      }
+     ...
     }
   },
   "success" : "true",
