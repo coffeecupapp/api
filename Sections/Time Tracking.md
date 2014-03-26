@@ -133,7 +133,7 @@ HTTP Response: 200 OK
     "project_id" : 1,
     "comment" : "WIP"
 }
-````
+```
 
 ## STOP/PAUSE a running time entry
 
@@ -143,7 +143,7 @@ HTTP Response: 200 OK
 {
     "running" : false
 }
-````
+```
 
 Will return the duration in seconds since you started working on it (running:true) 
 
@@ -174,7 +174,7 @@ HTTP Response: 200 Success
     "running" : false,
     "duration": 1234
 }
-````
+```
 
 Will override the duration since you started working on it 
 
