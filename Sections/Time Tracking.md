@@ -117,7 +117,7 @@ You may update selected attributes for a client.
 {
     "endtime" : "2014-02-08 22:59:00"
 }
-````
+```
 
 ## Create a running time entry
 
