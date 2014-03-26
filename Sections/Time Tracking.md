@@ -107,7 +107,7 @@ You may post the following
 
 ## Update a time entry
 
-`POST /api/time_entry/#{time_entry_id}`
+`PUT /api/time_entry/#{time_entry_id}`
 
 HTTP Response: 200 OK
 
@@ -117,8 +117,84 @@ You may update selected attributes for a client.
 {
     "endtime" : "2014-02-08 22:59:00"
 }
-
 ````
+
+## Create a running time entry
+
+`POST /api/time_entry`
+
+HTTP Response: 200 OK
+
+```json
+{
+    "running" : true,
+    "task_id" : 1,
+    "user_id" : 1,
+    "project_id" : 1,
+    "comment" : "WIP"
+}
+````
+
+## STOP/PAUSE a running time entry
+
+`PUT /api/time_entry/#{time_entry_id}`
+
+```json
+{
+    "running" : false
+}
+````
+
+Will return the duration in seconds since you started working on it (running:true) 
+
+HTTP Response: 200 Success
+
+```json
+{
+    "success": "true",
+    "message": "Record Updated",
+    "data": {
+        "totalCount": "1",
+        "time_entry": {
+            "id": 1,
+            "duration": 25,
+            "running": false,
+            ...
+        }
+    }
+}
+```
+
+## STOP/PAUSE a running time entry and manually set the duration
+
+`PUT /api/time_entry/#{time_entry_id}`
+
+```json
+{
+    "running" : false,
+    "duration": 1234
+}
+````
+
+Will override the duration since you started working on it 
+
+HTTP Response: 200 Success
+
+```json
+{
+    "success": "true",
+    "message": "Record Updated",
+    "data": {
+        "totalCount": "1",
+        "time_entry": {
+            "id": 1,
+            "duration": 1234,
+            "running": false,
+            ...
+        }
+    }
+}
+```
 
 ## Delete a time entry
 
