@@ -119,7 +119,8 @@ You may update selected attributes for a client.
 }
 ```
 
-# Create a running time entry #
+## Create a running time entry ##
+## Create a running time entry ##
 
 `POST /api/time_entry`
 
