@@ -1,6 +1,6 @@
 # Time Tracking
 
-## Get All Time Entries
+## Get All Time Entries ##
 
 `GET /api/time_entry`
 
@@ -51,43 +51,43 @@ HTTP Response: 200 Success
 }
 ```
 
-## Get time entries by project
+## Get time entries by project ##
 To show only the time_entries of a certain project, pass the GET Params (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "project_id", "value" : "1"}]`
 
 HTTP Response: 200 Success
 
-## Get time entries by user
+## Get time entries by user ##
 To show only the time_entries of a certain user, pass the GET Params (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "user_id", "value" : "1"}]`
 
 HTTP Response: 200 Success
 
-## Get time entries by user AND project
+## Get time entries by user AND project ##
 To show the time_entries of a certain user and project, combine the above (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "user_id", "value" : "2"},{"property": "project_id", "value" : "2"}]`
 
 HTTP Response: 200 Success
 
-## Get time entries by starttime
+## Get time entries by starttime ##
 To show only the time_entries that have a starttime after "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "starttime", "value" : "2013-01-01 17:23", "operator": ">="}]`
 
 HTTP Response: 200 Success
 
-## Get time entries by starttime and endtime.
+## Get time entries by starttime and endtime ##
 To show only the time_entries that have been starttime between "2013-01-01" and endtime "2015-01-31", pass these values (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "starttime", "value" : "2013-01-01", "operator": ">="} , {"property": "endtime", "value" : "2015-01-31", "operator": "<="}]`
 
 HTTP Response: 200 Success
 
-## Create a new time entry
-test
+## Create a new time entry ##
+
 `POST /api/time_entry`
 
 HTTP Response: 201 Created
@@ -105,8 +105,8 @@ You may post the following
 }
 ```
 
-## Update a time entry
-test
+## Update a time entry ##
+
 `PUT /api/time_entry/#{time_entry_id}`
 
 HTTP Response: 200 OK
@@ -119,9 +119,8 @@ You may update selected attributes for a client.
 }
 ```
 
+## Create a running time entry ##
 
-## Create a running time entry
-test
 `POST /api/time_entry`
 
 HTTP Response: 200 OK
@@ -136,8 +135,8 @@ HTTP Response: 200 OK
 }
 ```
 
-## STOP/PAUSE a running time entry
-test
+## STOP/PAUSE a running time entry ##
+
 `PUT /api/time_entry/#{time_entry_id}`
 
 ```json
@@ -166,8 +165,8 @@ HTTP Response: 200 Success
 }
 ```
 
-## STOP/PAUSE a running time entry and manually set the duration
-test
+## STOP/PAUSE a running time entry and manually set the duration ##
+
 `PUT /api/time_entry/#{time_entry_id}`
 
 ```json
@@ -197,8 +196,8 @@ HTTP Response: 200 Success
 }
 ```
 
-## Delete a time entry
-test
+## Delete a time entry ##
+
 `DELETE /api/time_entry/1`
 
 HTTP Response: 200 Success
@@ -218,8 +217,7 @@ HTTP Response: 200 Success
 
 
 
-## TBD....
+## TBD.... ##
 FIND corresponding `PUT` `POST` and `DELETE` Requests in the clients sections
-
  [Clients API](http://git.reppa.net/coffeecup/api_docs/blob/master/Sections/Clients.md)
  [Client-Contacts API](http://git.reppa.net/coffeecup/api_docs/blob/master/Sections/Clients%20Contacts.md)
