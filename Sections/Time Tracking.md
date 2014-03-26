@@ -198,6 +198,7 @@ HTTP Response: 200 Success
 ```
 
 ## Delete a time entry ##
+## Delete a time entry ##
 
 `DELETE /api/time_entry/1`
 
