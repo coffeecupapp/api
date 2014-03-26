@@ -87,7 +87,7 @@ To show only the time_entries that have been starttime between "2013-01-01" and 
 HTTP Response: 200 Success
 
 ## Create a new time entry
-
+test
 `POST /api/time_entry`
 
 HTTP Response: 201 Created
@@ -106,7 +106,7 @@ You may post the following
 ```
 
 ## Update a time entry
-
+test
 `PUT /api/time_entry/#{time_entry_id}`
 
 HTTP Response: 200 OK
@@ -119,9 +119,9 @@ You may update selected attributes for a client.
 }
 ```
 
-## Create a running time entry
-## Create a running time entry
 
+## Create a running time entry
+test
 `POST /api/time_entry`
 
 HTTP Response: 200 OK
@@ -137,7 +137,7 @@ HTTP Response: 200 OK
 ```
 
 ## STOP/PAUSE a running time entry
-
+test
 `PUT /api/time_entry/#{time_entry_id}`
 
 ```json
@@ -167,7 +167,7 @@ HTTP Response: 200 Success
 ```
 
 ## STOP/PAUSE a running time entry and manually set the duration
-
+test
 `PUT /api/time_entry/#{time_entry_id}`
 
 ```json
@@ -198,7 +198,7 @@ HTTP Response: 200 Success
 ```
 
 ## Delete a time entry
-
+test
 `DELETE /api/time_entry/1`
 
 HTTP Response: 200 Success
@@ -220,5 +220,6 @@ HTTP Response: 200 Success
 
 ## TBD....
 FIND corresponding `PUT` `POST` and `DELETE` Requests in the clients sections
+
  [Clients API](http://git.reppa.net/coffeecup/api_docs/blob/master/Sections/Clients.md)
  [Client-Contacts API](http://git.reppa.net/coffeecup/api_docs/blob/master/Sections/Clients%20Contacts.md)
