@@ -120,7 +120,6 @@ You may update selected attributes for a client.
 ```
 
 ## Create a running time entry ##
-## Create a running time entry ##
 
 `POST /api/time_entry`
 
@@ -197,7 +196,6 @@ HTTP Response: 200 Success
 }
 ```
 
-## Delete a time entry ##
 ## Delete a time entry ##
 
 `DELETE /api/time_entry/1`
