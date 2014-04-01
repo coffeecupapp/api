@@ -21,6 +21,8 @@ HTTP Response: 200 Success
     "time_entry" : [
       {
         "starttime" : "2014-02-08 22:50:40",
+        "endtime" : "2014-02-08 22:54:40",
+        "spent_at" : "2014-02-08 22:50:40",
         "id" : 1,
         "task" : {
           "id" : 1,
@@ -34,7 +36,7 @@ HTTP Response: 200 Success
         "task_id" : 1,
         "created" : "2014-02-08 22:54:40",
         "user_id" : 1,
-        "endtime" : "2014-02-08 22:54:40",
+        
         "project_id" : 1,
         "comment" : "neuerer kommentar",
         "duration" : 120,
