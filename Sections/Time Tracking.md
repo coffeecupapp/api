@@ -20,28 +20,21 @@ HTTP Response: 200 Success
     "totalCount" : "22",
     "time_entry" : [
       {
-        "starttime" : "2014-02-08 22:50:40",
-        "endtime" : "2014-02-08 22:54:40",
-        "spent_at" : "2014-02-08 22:50:40",
         "id" : 1,
+        "spent_at" : "2014-02-08 22:50:40",
+        "comment" : "neuerer kommentar",
+        "duration" : 120,
+        "running" : true,
         "task" : {
           "id" : 1,
           "hourly_rate" : "90.9900",
           "category_id" : 1,
-          "created" : "2014-02-08 22:35:00",
           "label" : "code",
-          "billable_default":true,
-          "modified" : "2014-02-08 22:35:00"
+          "billable_default":true
         },
         "task_id" : 1,
-        "created" : "2014-02-08 22:54:40",
         "user_id" : 1,
-        
-        "project_id" : 1,
-        "comment" : "neuerer kommentar",
-        "duration" : 120,
-        "running" : true,
-        "modified" : "2014-02-08 22:54:40"
+        "project_id" : 1
       },
       {
         ...
@@ -75,16 +68,16 @@ To show the time_entries of a certain user and project, combine the above (URL e
 HTTP Response: 200 Success
 
 ## Get time entries by starttime ##
-To show only the time_entries that have a starttime after "2013-01-01 17:23", pass the UTC date value (URL encoded).
+To show only the time_entries that have a time after "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
-`GET /api/time_entry?filter=[{"property": "starttime", "value" : "2013-01-01 17:23", "operator": ">="}]`
+`GET /api/time_entry?filter=[{"property": "spent_at", "value" : "2013-01-01 17:23", "operator": ">="}]`
 
 HTTP Response: 200 Success
 
 ## Get time entries by starttime and endtime ##
-To show only the time_entries that have been starttime between "2013-01-01" and endtime "2015-01-31", pass these values (URL encoded).
+To show only the time_entries that have a time between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
 
-`GET /api/time_entry?filter=[{"property": "starttime", "value" : "2013-01-01", "operator": ">="} , {"property": "endtime", "value" : "2015-01-31", "operator": "<="}]`
+`GET /api/time_entry?filter=[{"property": "spent_at", "value" : "2013-01-01", "operator": ">="} , {"property": "spent_at", "value" : "2015-01-31", "operator": "<="}]`
 
 HTTP Response: 200 Success
 
@@ -98,10 +91,9 @@ You may post the following
 
 ```json
 {
-    "starttime" : "2014-02-08 22:50:40",
+    "spent_at" : "2014-02-08 22:50:40",
     "task_id" : 1,
     "user_id" : 1,
-    "endtime" : "2014-02-08 22:54:40",
     "project_id" : 1,
     "comment" : "neuerer kommentar"
 }
@@ -117,7 +109,7 @@ You may update selected attributes for a client.
 
 ```json
 {
-    "endtime" : "2014-02-08 22:59:00"
+    "spent_at" : "2014-02-08 22:59:00"
 }
 ```
 
