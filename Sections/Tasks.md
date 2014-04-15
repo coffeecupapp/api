@@ -29,22 +29,24 @@ HTTP Response: 200 Success
         "id" : 1,
         "hourly_rate" : "90.9900",
         "category_id" : 1,
+        "color_id": 1,
         "created" : "2014-02-08 22:35:00",
         "label" : "code",
         "billable_default" : true,
         "modified" : "2014-02-08 22:35:00",
         "projects" : [
           {
-            "budget" : "900000.0000",
-            "budget_type_index" : 0,
             "id" : 1,
+            "color_id": 1,
+            "client_id" : 1,
+            "invoice_type_index" : 0,
+            "budget_type_index" : 0,
+            "budget" : "900000.0000",
             "code" : "PR1",
             "hourly_rate" : "90.0000",
-            "invoice_type_index" : 0,
             "created" : "0000-00-00 00:00:00",
             "modified" : "0000-00-00 00:00:00",
             "comment" : "",
-            "client_id" : 1,
             "name" : "Projekt 1"
           },
           {
@@ -78,8 +80,13 @@ HTTP Response: 201 Created
 You need to post the following:
 
 ```json
+
 {
-   ...
+    "hourly_rate" : "90",
+    "category_id" : 1,
+    "color_id": 1,
+    "label" : "design",
+    "billable_default" : 1
 }
 ```
 
@@ -93,7 +100,8 @@ You may update selected attributes for a task.
 
 ```json
 {
-    "label": "Tasks new Name"
+    "label": "Tasks new Name",
+    "billable_default" : 0
 }
 
 ```

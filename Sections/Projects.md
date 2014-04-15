@@ -51,6 +51,7 @@ HTTP Response: 200 Success
             "id" : 1,
             "hourly_rate" : "90.9900",
             "category_id" : 1,
+            "color_id": 1,
             "created" : "2014-02-08 22:35:00",
             "label" : "code",
             "billable_default" : 1,
@@ -75,7 +76,15 @@ HTTP Response: 200 Success
           "name" : "Client 1"
         },
         "budget_type_index" : 0,
-        "name" : "Projekt 1"
+        "name" : "Projekt 1",
+        "color_id": 1,
+        "color": {
+          "id": 1,
+          "label": "red",
+          "hex": "ff0000",
+          "created": "2014-04-08 15:12:51",
+          "modified": "2014-04-08 15:12:51"
+        },
       },
       {
         ...
@@ -104,7 +113,12 @@ You need to post the following:
 
 ```json
 {
-   ...
+        "color_id": 1,
+        "client_id": 1,
+        "name": "Project XY",
+        "comment": "foo",
+        "code": "PXY",
+        ...
 }
 ```
 
