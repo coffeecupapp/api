@@ -20,19 +20,13 @@ HTTP Response: 200 Success
     "totalCount" : "11",
     "task" : [
       {
-        "category" : {
-          "id" : 1,
-          "created" : "0000-00-00 00:00:00",
-          "label" : "task cat 1",
-          "modified" : "0000-00-00 00:00:00"
-        },
         "id" : 1,
         "hourly_rate" : "90.9900",
-        "category_id" : 1,
         "color_id": 1,
         "created" : "2014-02-08 22:35:00",
         "label" : "code",
-        "billable_default" : true,
+        "billable" : true,
+        "favorite" : false,
         "modified" : "2014-02-08 22:35:00",
         "projects" : [
           {
@@ -83,10 +77,10 @@ You need to post the following:
 
 {
     "hourly_rate" : "90",
-    "category_id" : 1,
     "color_id": 1,
-    "label" : "design",
-    "billable_default" : 1
+    "label": "design",
+    "billable": 1,
+    "favorite": 0
 }
 ```
 
@@ -101,7 +95,7 @@ You may update selected attributes for a task.
 ```json
 {
     "label": "Tasks new Name",
-    "billable_default" : 0
+    "billable" : 0
 }
 
 ```
@@ -126,68 +120,3 @@ If task does not have associated time entries CoffeeCup deletes it and returns H
 `DELETE /api/project/3/task/2`
 
 
-# Task Categories
-
-## Get All Task Categories
-
-`GET /api/task_category`
-
-Example request
-
-```shell
-curl -v -u admin:admin  \
-	-H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/task_category
-```
-
-HTTP Response: 200 Success
-
-```json
-{
-  "data" : {
-    "totalCount" : "1",
-    "task_category" : [
-      {
-        "id" : 1,
-        "created" : "0000-00-00 00:00:00",
-        "label" : "task cat 1",
-        "modified" : "0000-00-00 00:00:00"
-      }
-    ]
-  },
-  "success" : true,
-  "message" : "Record(s) Found"
-}
-```
-
-## Create A Task Category
-
-`POST /api/task_category`
-
-HTTP Response: 201 Created
-
-You need to post the following:
-
-```json
-{
-    "label" : "task cat 2",
-}
-```
-
-## Update A Task Category
-
-`PUT /api/task_category/#{task_category_id}`
-
-HTTP Response: 200 OK
-
-You may update selected attributes for a client.
-
-```json
-{
-    "label" : "task new catname",
-}
-```
-
-## Delete A Task Category
-
-`DELETE /api/task_category/#{task_category_id}`
