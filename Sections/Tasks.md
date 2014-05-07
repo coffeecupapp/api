@@ -137,7 +137,21 @@ HTTP Response: 200 OK
 
 `DELETE /api/task/#{task_id}`
 
-If task does not have associated time entries CoffeeCup deletes it and returns HTTP Response: 200 OK otherwise task is not deleted and you'll get a HTTP Response: 400 Bad Request .
+If task does not have associated time entries CoffeeCup deletes it and returns
+HTTP Response: 200 OK
+
+otherwise task is not deleted and you'll get a HTTP Response: 500 Could not delete model.
+
+```json
+{
+    "success": false,
+    "message": "Could not delete model",
+    "data": {
+        "errorCode": 500,
+        "message": "Could not delete model"
+    }
+}
+```
 
 
 ## Get All Projects that are allowed to track time using this task

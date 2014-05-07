@@ -172,7 +172,21 @@ HTTP Response: 200 OK
 
 `DELETE /api/project/#{project_id}`
 
-If project does not have associated invoices CoffeeCup deletes it and returns HTTP Response: 200 OK otherwise project is not deleted and you'll get a HTTP Response: 400 Bad Request .
+If project does not have associated time entries or expenses CoffeeCup deletes it and returns
+HTTP Response: 200 OK
+
+otherwise project is not deleted and you'll get a HTTP Response: 500 Could not delete model.
+
+```json
+{
+    "success": false,
+    "message": "Could not delete model",
+    "data": {
+        "errorCode": 500,
+        "message": "Could not delete model"
+    }
+}
+```
 
 
 ## Get All Tasks Of A Project

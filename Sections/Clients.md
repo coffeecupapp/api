@@ -197,6 +197,18 @@ HTTP Response: 200 OK
 
 `DELETE /api/client/#{client_id}`
 
-If client does not have associated projects or invoices CoffeeCup deletes it and returns
+If client does not have associated projects and/or time entries CoffeeCup deletes it and returns
 HTTP Response: 200 OK
-otherwise client is not deleted and you'll get a HTTP Response: 400 Bad Request .
+
+otherwise client is not deleted and you'll get a HTTP Response: 500 Could not delete model.
+
+```json
+{
+    "success": false,
+    "message": "Could not delete model",
+    "data": {
+        "errorCode": 500,
+        "message": "Could not delete model"
+    }
+}
+```
