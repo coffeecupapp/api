@@ -94,7 +94,6 @@ HTTP Response: 201 Created
 You need to post the following:
 
 ```json
-
 {
     "hourly_rate" : "90",
     "color_id": 1,
