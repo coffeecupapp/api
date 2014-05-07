@@ -22,6 +22,7 @@ HTTP Response: 200 Success
         "totalCount":"10",
         "client":[{
             "id":"1",
+            "status": 1,
             "currency_id":"1",
             "name":"Client 1",
             "created":"0000-00-00 00:00:00",
@@ -55,7 +56,7 @@ HTTP Response: 200 Success
                 "firstname":"Vorname",
                 "lastname":"Nachname",
                 "title":"Dr.",
-                "email":"1@2gu.de",
+                "email":"email@provider.com",
                 "phone":"1234",
                 "phone_mobile":"1212121",
                 "fax":null,
@@ -66,8 +67,6 @@ HTTP Response: 200 Success
                 "comment":null,
                 "created":"0000-00-00 00:00:00",
                 "modified":"0000-00-00 00:00:00"
-            },{
-            ...
             }]
         },{
         ...
@@ -76,15 +75,34 @@ HTTP Response: 200 Success
 }
 ```
 
-You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
+### You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
 `GET /api/client?filter=[{"property": "modified", "value" : "2013-01-01 17:23", "operator": ">="}]`
 
 HTTP Response: 200 Success
 
-You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
+### You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
 
 `GET /api/client?filter=[{"property": "created", "value" : "2013-01-01", "operator": ">="} , {"property": "created", "value" : "2015-01-31", "operator": "<="}]`
+
+HTTP Response: 200 Success
+
+
+## Get Archived Clients Only
+
+`GET /api/client?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get Archived AND Non-Archived Clients (DEFAULT Behaviour)
+
+`GET /api/client?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+
+HTTP Response: 200 Success
+
+## Get Non-Archived Clients Only
+
+`GET /api/client?filter=[{"property": "status", "value" : "1", "operator": "="}]`
 
 HTTP Response: 200 Success
 
@@ -129,7 +147,7 @@ You need to post the following:
         "firstname": "Vorname 4",
         "lastname": "Nachname 4",
         "title": null,
-        "email": "2@2gu.de",
+        "email": "foo@bar.com",
         "phone": 12121212,
         "phone_mobile": null,
         "fax": null,
@@ -159,11 +177,26 @@ You may update selected attributes for a client.
 {
     "name": "Clients new Name"
 }
-
 ```
+
+
+## Archive A Client
+
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE CLIENT
+
+`PUT /api/client/#{client_id}`
+
+```json
+{
+    "status": "0"
+}
+```
+HTTP Response: 200 OK
 
 ## Delete A Client
 
 `DELETE /api/client/#{client_id}`
 
-If client does not have associated projects or invoices CoffeeCup deletes it and returns HTTP Response: 200 OK otherwise client is not deleted and you'll get a HTTP Response: 400 Bad Request .
+If client does not have associated projects or invoices CoffeeCup deletes it and returns
+HTTP Response: 200 OK
+otherwise client is not deleted and you'll get a HTTP Response: 400 Bad Request .

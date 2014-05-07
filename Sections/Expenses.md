@@ -21,6 +21,7 @@ HTTP Response: 200 Success
     "expense" : [
       {
         "id" : 1,
+        "status" : 1,
         "modified" : "2014-02-08 22:31:18",
         "receipt_url" : "www.google.de",
         "project" : {
@@ -68,7 +69,7 @@ HTTP Response: 200 Success
           "timezone" : "Europe/Berlin",
           "role_index" : 0,
           "last_login_at" : "0000-00-00 00:00:00",
-          "email" : "1@2gu.de"
+          "email" : "email@provider.com"
         }
       }
     ]
@@ -77,6 +78,36 @@ HTTP Response: 200 Success
   "message" : "Record(s) Found"
 }
 ```
+
+
+## Get Archived Expenses Only
+
+`GET /api/expense?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get Archived AND Non-Archived Expenses (DEFAULT Behaviour)
+
+`GET /api/expense?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+
+HTTP Response: 200 Success
+
+## Get Non-Archived Expenses Only
+
+`GET /api/expense?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+
+## Archive A Expense
+
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
+
+`PUT /api/expense/#{expense_id}`
+
+```json
+{
+    "status": "0"
+}
+```
+HTTP Response: 200 OK
 
 
 # Expense_Types

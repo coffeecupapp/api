@@ -21,7 +21,9 @@ HTTP Response: 200 Success
     "project" : [
       {
         "id" : 1,
-        "modified" : "0000-00-00 00:00:00",
+        "modified" : "2014-04-15 15:13:22",
+        "created" : "2014-04-15 15:13:22",
+        "status": 1,
         "users" : [
           {
             "id" : 1,
@@ -30,7 +32,7 @@ HTTP Response: 200 Success
             "beginning_of_week" : 0,
             "modified" : "2014-02-08 17:12:19",
             "lastname" : "nachname",
-            "last_active_at" : "0000-00-00 00:00:00",
+            "last_active_at" : "2014-02-08 17:12:19",
             "hourly_rate" : "90.9900",
             "image_url" : "",
             "firstname" : "vorname",
@@ -39,8 +41,8 @@ HTTP Response: 200 Success
             "created" : "2014-02-08 17:12:19",
             "timezone" : "Europe/Berlin",
             "role_index" : 0,
-            "last_login_at" : "0000-00-00 00:00:00",
-            "email" : "1@2gu.de"
+            "last_login_at" : "2014-02-08 17:12:19",
+            "email" : "email@provider.com"
           },
           {
             ...
@@ -66,7 +68,6 @@ HTTP Response: 200 Success
         "comment" : "",
         "code" : "PR1",
         "budget" : "900000.0000",
-        "created" : "0000-00-00 00:00:00",
         "client_id" : 1,
         "client" : {
           "id" : 1,
@@ -96,7 +97,25 @@ HTTP Response: 200 Success
 }
 ```
 
-## Get A Project
+## Get Archived Projects Only
+
+`GET /api/project?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get Archived AND Non-Archived Projects (DEFAULT Behaviour)
+
+`GET /api/project?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+
+HTTP Response: 200 Success
+
+## Get Non-Archived Projects Only
+
+`GET /api/project?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get A Single Project
 
 `GET /api/project/#{project_id}`
 
@@ -134,8 +153,20 @@ You may update selected attributes for a project.
 {
     "name": "Project new Name"
 }
-
 ```
+
+## Archive A Project
+
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
+
+`PUT /api/project/#{project_id}`
+
+```json
+{
+    "status": "0"
+}
+```
+HTTP Response: 200 OK
 
 ## Delete A Project
 

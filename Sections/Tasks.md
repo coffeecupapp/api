@@ -21,6 +21,7 @@ HTTP Response: 200 Success
     "task" : [
       {
         "id" : 1,
+        "status" : 1,
         "hourly_rate" : "90.9900",
         "color_id": 1,
         "created" : "2014-02-08 22:35:00",
@@ -31,6 +32,7 @@ HTTP Response: 200 Success
         "projects" : [
           {
             "id" : 1,
+            "status" : 1,
             "color_id": 1,
             "client_id" : 1,
             "invoice_type_index" : 0,
@@ -57,6 +59,24 @@ HTTP Response: 200 Success
   "message" : "Record(s) Found"
 }
 ```
+
+## Get Archived Tasks Only
+
+`GET /api/task?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get Archived AND Non-Archived Tasks (DEFAULT Behaviour)
+
+`GET /api/task?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+
+HTTP Response: 200 Success
+
+## Get Non-Archived Tasks Only
+
+`GET /api/task?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+
+HTTP Response: 200 Success
 
 ## Get A Task
 
@@ -97,8 +117,22 @@ You may update selected attributes for a task.
     "label": "Tasks new Name",
     "billable" : 0
 }
-
 ```
+
+
+## Archive A Task
+
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
+
+`PUT /api/task/#{task_id}`
+
+```json
+{
+    "status": "0"
+}
+```
+HTTP Response: 200 OK
+
 
 ## Delete A Task
 

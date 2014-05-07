@@ -23,6 +23,7 @@ HTTP Response: 200 Success
     "user" :
       {
         "id" : 1,
+        "status" : 1,
         "type_index" : 0,
         "date_format" : "d.m.Y",
         "modified" : "2014-02-08 17:12:19",
@@ -37,7 +38,7 @@ HTTP Response: 200 Success
         "timezone" : "Europe/Berlin",
         "role_index" : 0,
         "last_login_at" : "2014-02-08 17:12:19",
-        "email" : "1@2gu.de",
+        "email" : "email@provider.com",
         "beginning_of_week" : "monday",
         "hours_of_work": {
             "id" : 1,
@@ -84,6 +85,7 @@ HTTP Response: 200 Success
     "user" : [
       {
         "id" : 1,
+        "status" : 1,
         "type_index" : 0,
         "date_format" : "d.m.Y",
         "modified" : "2014-02-08 17:12:19",
@@ -98,7 +100,7 @@ HTTP Response: 200 Success
         "timezone" : "Europe/Berlin",
         "role_index" : 0,
         "last_login_at" : "2014-02-08 17:12:19",
-        "email" : "1@2gu.de",
+        "email" : "email@provider.com",
         "beginning_of_week" : "monday",
         "hours_of_work": {
             "id" : 1,
@@ -129,6 +131,23 @@ HTTP Response: 200 Success
 }
 ```
 
+## Get Archived Users Only
+
+`GET /api/user?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get Archived AND Non-Archived Users (DEFAULT Behaviour)
+
+`GET /api/user?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+
+HTTP Response: 200 Success
+
+## Get Non-Archived Users Only
+
+`GET /api/user?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+
+HTTP Response: 200 Success
 
 ## Get All User of a certain project (1)
 
@@ -165,3 +184,16 @@ HTTP Response: 200 Success
         ...
     }
 }
+
+## Archive A User
+
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE USER
+
+`PUT /api/user/#{user_id}`
+
+```json
+{
+    "status": "0"
+}
+```
+HTTP Response: 200 OK

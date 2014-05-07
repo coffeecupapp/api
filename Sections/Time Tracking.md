@@ -21,6 +21,7 @@ HTTP Response: 200 Success
     "time_entry" : [
       {
         "id" : 1,
+        "status" : 1,
         "spent_at" : "2014-02-08 22:50:40",
         "comment" : "neuerer kommentar",
         "duration" : 120,
@@ -45,6 +46,23 @@ HTTP Response: 200 Success
   "message" : "Record(s) Found"
 }
 ```
+
+## Get Archived Time Entries Only
+
+`GET /api/time_entry?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+
+HTTP Response: 200 Success
+
+## Get Archived AND Non-Archived Time Entries (DEFAULT Behaviour)
+
+`GET /api/time_entry?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+
+HTTP Response: 200 Success
+
+## Get Non-Archived Time Entries Only
+
+`GET /api/time_entry?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+
 
 ## Get time entries by project ##
 To show only the time_entries of a certain project, pass the GET Params (URL encoded).
@@ -208,6 +226,19 @@ HTTP Response: 200 Success
   "message" : "Record Deleted"
 }
 ```
+
+## Archive A Time Entry
+
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
+
+`PUT /api/time_entry/#{time_entry_id}`
+
+```json
+{
+    "status": "0"
+}
+```
+HTTP Response: 200 OK
 
 
 
