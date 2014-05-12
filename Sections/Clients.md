@@ -25,6 +25,7 @@ HTTP Response: 200 Success
             "status": 1,
             "currency_id":"1",
             "name":"Client 1",
+            "code": "CL1",
             "created":"0000-00-00 00:00:00",
             "modified":"0000-00-00 00:00:00",
             "currency":{
