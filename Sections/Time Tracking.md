@@ -92,7 +92,7 @@ To show only the time_entries that have a time after "2013-01-01 17:23", pass th
 
 HTTP Response: 200 Success
 
-## Get time entries Of A Certain Date Range ##
+## Get time entries For A Given Timeframe ##
 To show only the time_entries that have a time between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "spent_at", "value" : "2013-01-01", "operator": ">="} , {"property": "spent_at", "value" : "2015-01-31", "operator": "<="}]`

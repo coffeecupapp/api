@@ -43,7 +43,7 @@ HTTP Response: 200 Success
 
 HTTP Response: 200 Success
 
-## Get User-Score Entries Of A Certain Range of Days
+## Get User-Score Entries For A Given Timeframe ##
 
 `GET /api/user_score?filter=[{"property": "date", "value" : "2014-05-16", "operator": ">="} , {"property": "date", "value" : "2014-05-18", "operator": "<="}]`
 
