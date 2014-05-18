@@ -122,7 +122,7 @@ You may update selected attributes for a task.
 
 ## Archive A Task
 
-### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
+### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE TASK ENTRY?
 
 `PUT /api/task/#{task_id}`
 
