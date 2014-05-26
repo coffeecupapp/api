@@ -20,54 +20,18 @@ HTTP Response: 200 Success
     "totalCount" : "5",
     "project" : [
       {
-        "id" : 1,
-        "modified" : "2014-04-15 15:13:22",
-        "created" : "2014-04-15 15:13:22",
+        "id": 1,
+        "name": "Projekt 1",
+        "bill_by": 0, // 0: not billable, 1: do not apply hourly rate, 2: project hourly rate, 3: user hourly rate, 4: task hourly rate
+        "budget_by": 0, // 0: no budget, 1: total project hours, 2: total project amount, 3: budget per user, 4: budget per task 
+        "comment": "",
+        "code": "PR1",
+        "hourly_rate": "90.0000", // default null, only if bill_by = 2
+        "budget": "900000.0000", // default null, only if budget_by = 2
+        "budget_hours": "120.00", // default null, only if budget_by = 1
+        "created": "0000-00-00 00:00:00",
+        "modified": "2014-04-15 15:13:22",
         "status": 1,
-        "users" : [
-          {
-            "id" : 1,
-            "type_index" : 0,
-            "date_format" : "d.m.Y",
-            "beginning_of_week" : 0,
-            "modified" : "2014-02-08 17:12:19",
-            "lastname" : "nachname",
-            "last_active_at" : "2014-02-08 17:12:19",
-            "hourly_rate" : "90.9900",
-            "image_url" : "",
-            "firstname" : "vorname",
-            "timeofday_format" : "H:i:s",
-            "language" : "de_DE",
-            "created" : "2014-02-08 17:12:19",
-            "timezone" : "Europe/Berlin",
-            "role_index" : 0,
-            "last_login_at" : "2014-02-08 17:12:19",
-            "email" : "email@provider.com"
-          },
-          {
-            ...
-          }
-        ],
-        "tasks" : [
-          {
-            "id" : 1,
-            "hourly_rate" : "90.9900",
-            "category_id" : 1,
-            "color_id": 1,
-            "created" : "2014-02-08 22:35:00",
-            "label" : "code",
-            "billable_default" : 1,
-            "modified" : "2014-02-08 22:35:00"
-          },
-          {
-            ...
-          }
-        ],
-        "hourly_rate" : "90.0000",
-        "invoice_type_index" : 0,
-        "comment" : "",
-        "code" : "PR1",
-        "budget" : "900000.0000",
         "client_id" : 1,
         "client" : {
           "id" : 1,
@@ -76,8 +40,6 @@ HTTP Response: 200 Success
           "modified" : "0000-00-00 00:00:00",
           "name" : "Client 1"
         },
-        "budget_type_index" : 0,
-        "name" : "Projekt 1",
         "color_id": 1,
         "color": {
           "id": 1,
@@ -86,6 +48,38 @@ HTTP Response: 200 Success
           "created": "2014-04-08 15:12:51",
           "modified": "2014-04-08 15:12:51"
         },
+        "user_assignments": [
+            {
+                "id": 1,
+                "project_id": 1,
+                "user_id": 1,
+                "project_manager": false,
+                "hourly_rate": "", // default null, only if bill_by = 3
+                "budget": "", // default null, only if budget_by = 3
+                "modified": "0000-00-00 00:00:00",
+                "created": "0000-00-00 00:00:00",
+                "status": 1
+            },
+            {
+                ...
+            }
+        ],
+        "task_assignments": [
+            {
+                "id": 1,
+                "project_id": 1,
+                "task_id": 1,
+                "billable": true,
+                "hourly_rate": "", // default null, only if bill_by = 4
+                "budget": "", // default null, only if budget_by = 4
+                "created": "0000-00-00 00:00:00",
+                "modified": "0000-00-00 00:00:00",
+                "status": 1
+            },
+            {
+                ...
+            }
+        ]
       },
       {
         ...

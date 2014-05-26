@@ -24,7 +24,7 @@ HTTP Response: 200 Success
         "status" : 1,
         "spent_at" : "2014-02-08 22:50:40",
         "comment" : "neuerer kommentar",
-        "duration" : 120,
+        "duration" : 120, // in seconds
         "running" : true,
         "task" : {
           "id" : 1,
