@@ -23,18 +23,12 @@ HTTP Response: 200 Success
         "client":[{
             "id":"1",
             "status": 1,
-            "currency_id":"1",
+            "hourly_rate":"90.9900",
             "name":"Client 1",
             "code": "CL1",
             "created":"0000-00-00 00:00:00",
             "modified":"0000-00-00 00:00:00",
-            "currency":{
-                "id":"1",
-                "label":"EUR",
-                "symbol":"\u20ac",
-                "created":"0000-00-00 00:00:00",
-                "modified":"0000-00-00 00:00:00"
-            },
+            "currency":"EUR",
             "projects":[{
                 "id":"1",
                 "client_id":"1",
@@ -53,7 +47,7 @@ HTTP Response: 200 Success
             "contacts":[{
                 "id":"1",
                 "client_id":"1",
-                "country_id":"1",
+                "country":"DE",
                 "firstname":"Vorname",
                 "lastname":"Nachname",
                 "title":"Dr.",

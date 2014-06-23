@@ -22,9 +22,10 @@ HTTP Response: 200 Success
       {
         "id": 1,
         "name": "Projekt 1",
-        "bill_by": 0, // 0: not billable, 1: do not apply hourly rate, 2: project hourly rate, 3: user hourly rate, 4: task hourly rate
+        "bill_by": 0, // 0: not billable, 1: client hourly rate, 2: project hourly rate, 3: user hourly rate, 4: task hourly rate
         "budget_by": 0, // 0: no budget, 1: total project hours, 2: total project amount, 3: budget per user, 4: budget per task 
         "comment": "",
+        "internal": false,
         "code": "PR1",
         "hourly_rate": "90.0000", // default null, only if bill_by = 2
         "budget": "900000.0000", // default null, only if budget_by = 2
