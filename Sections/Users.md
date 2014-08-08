@@ -43,13 +43,13 @@ HTTP Response: 200 Success
         "hours_of_work": {
             "id" : 1,
             "user_id" : 1,
-            "monday": 8,
-            "tuesday": 8,
-            "wednesday": 8,
-            "thursday": 8,
-            "friday": 4,
-            "saturday": 0,
-            "sunday": 0
+            "monday": "23.95",
+            "tuesday": "23.00",
+            "wednesday": "5.00",
+            "thursday": "8.00",
+            "friday": "7.00",
+            "saturday": "2.00",
+            "sunday": "0.00",
         },
         "user_level": 5
       }

@@ -29,7 +29,7 @@ HTTP Response: 200 Success
         "code": "PR1",
         "hourly_rate": "90.0000", // default null, only if bill_by = 2
         "budget": "900000.0000", // default null, only if budget_by = 2
-        "budget_hours": "120.00", // default null, only if budget_by = 1
+        "budget_hours": "1230.00", // default null, only if budget_by = 1
         "created": "0000-00-00 00:00:00",
         "modified": "2014-04-15 15:13:22",
         "status": 1,
