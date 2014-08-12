@@ -56,7 +56,7 @@ HTTP Response: 200 Success
                 "user_id": 1,
                 "project_manager": false,
                 "hourly_rate": "", // default null, only if bill_by = 3
-                "budget": "", // default null, only if budget_by = 3
+                "budget_hours": "0.00", // default 0.00, only if budget_by = 3
                 "modified": "0000-00-00 00:00:00",
                 "created": "0000-00-00 00:00:00",
                 "status": 1
@@ -72,7 +72,7 @@ HTTP Response: 200 Success
                 "task_id": 1,
                 "billable": true,
                 "hourly_rate": "", // default null, only if bill_by = 4
-                "budget": "", // default null, only if budget_by = 4
+                "budget_hours": "0.00", // default 0.00, only if budget_by = 4
                 "created": "0000-00-00 00:00:00",
                 "modified": "0000-00-00 00:00:00",
                 "status": 1
