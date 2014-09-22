@@ -138,6 +138,7 @@ HTTP Response: 200 Success
         "label" : "expensetypename",
         "modified" : "0000-00-00 00:00:00",
         "unit_label" : "€"
+        "icon" : "icon-search"
       }
     ]
   },
