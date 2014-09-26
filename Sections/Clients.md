@@ -208,3 +208,40 @@ otherwise client is not deleted and you'll get a HTTP Response: 500 Could not de
     }
 }
 ```
+
+
+## Upload A Client Image
+
+`POST /api/file/upload/client_image/#{user_id}`
+
+HTTP Response: 200 OK
+
+When adding or updating an image, you don't need to post any JSON. Just post the image data like you would any multipart form data. Be sure to set the name of the post data to "upload" and set the "filename=" parameter:
+
+```http
+Host: #{yoursubdomain}.coffeecupapp.com
+Authorization: Basic (insert your authentication string here)
+Content-Length: 456221
+Content-Type: multipart/form-data; boundary=------------------------------E19zNvXGzXaLvS5C
+------------------------------E19zNvXGzXaLvS5C
+Content-Disposition: form-data; name="upload"; filename="DSC00039.JPG"
+Content-Type: image/jpeg
+
+#{ BINARY IMAGE DATA }
+
+------------------------------E19zNvXGzXaLvS5C
+```
+
+## GET The Clients Image
+
+`GET /api/file/get/client_image/#{user_id}?size=default&format=png`
+
+```
+size: default,small,large
+format: jpg,png,gif
+```
+
+
+HTTP Response: 200 OK
+
+Perform a simple GET on the Client Image URL to receive the image data.

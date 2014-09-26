@@ -161,7 +161,7 @@ HTTP Response: 200 OK
 
 ## Upload A Profile Image
 
-`POST /api/user/image/#{user_id}`
+`POST /api/file/upload/user_image/#{user_id}`
 
 HTTP Response: 200 OK
 
@@ -183,7 +183,13 @@ Content-Type: image/jpeg
 
 ## GET The Users Profile Image
 
-`GET /api/user/image/#{user_id}`
+`GET /api/file/get/user_image/#{user_id}?size=default&format=png`
+
+```
+size: default,small,large
+format: jpg,png,gif
+```
+
 
 HTTP Response: 200 OK
 
