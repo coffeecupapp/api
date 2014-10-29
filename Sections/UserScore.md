@@ -27,8 +27,8 @@ HTTP Response: 200 Success
                 "date": "2014-05-17",
                 "score": 55,
                 "percent": 77,
-                "created": "2014-05-17 00:03:02",
-                "modified": "2014-05-17 02:02:22",
+                "createdAt": "2014-05-17 00:03:02",
+                "updatedAt": "2014-05-17 02:02:22",
                 "status": 1
             },
             ...

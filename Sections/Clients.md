@@ -27,8 +27,8 @@ HTTP Response: 200 Success
             "name":"Client 1",
             "website": "www.client1.de",
             "code": "CL1",
-            "created":"0000-00-00 00:00:00",
-            "modified":"0000-00-00 00:00:00",
+            "createdAt":"0000-00-00 00:00:00",
+            "updatedAt":"0000-00-00 00:00:00",
             "currency":"EUR",
             "projects":[{
                 "id":"1",
@@ -40,8 +40,8 @@ HTTP Response: 200 Success
                 "code":"PR1",
                 "hourly_rate":"90.0000",
                 "budget":"900000.0000",
-                "created":"0000-00-00 00:00:00",
-                "modified":"0000-00-00 00:00:00"
+                "createdAt":"0000-00-00 00:00:00",
+                "updatedAt":"0000-00-00 00:00:00"
             },{
             ...
             }],
@@ -61,8 +61,8 @@ HTTP Response: 200 Success
                 "postcode":null,
                 "city":null,
                 "comment":null,
-                "created":"0000-00-00 00:00:00",
-                "modified":"0000-00-00 00:00:00"
+                "createdAt":"0000-00-00 00:00:00",
+                "updatedAt":"0000-00-00 00:00:00"
             }]
         },{
         ...
@@ -73,13 +73,13 @@ HTTP Response: 200 Success
 
 ### You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
-`GET /api/client?filter=[{"property": "modified", "value" : "2013-01-01 17:23", "operator": ">="}]`
+`GET /api/client?filter=[{"property": "updatedAt", "value" : "2013-01-01 17:23", "operator": ">="}]`
 
 HTTP Response: 200 Success
 
 ### You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
 
-`GET /api/client?filter=[{"property": "created", "value" : "2013-01-01", "operator": ">="} , {"property": "created", "value" : "2015-01-31", "operator": "<="}]`
+`GET /api/client?filter=[{"property": "createdAt", "value" : "2013-01-01", "operator": ">="} , {"property": "createdAt", "value" : "2015-01-31", "operator": "<="}]`
 
 HTTP Response: 200 Success
 
@@ -152,8 +152,8 @@ You need to post the following:
         "postcode": null,
         "city": null,
         "comment": null,
-        "created": "2014-02-09 17:23:51",
-        "modified": "2014-02-09 17:23:51"
+        "createdAt": "2014-02-09 17:23:51",
+        "updatedAt": "2014-02-09 17:23:51"
     },
     {
         ...

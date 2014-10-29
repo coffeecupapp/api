@@ -30,15 +30,15 @@ HTTP Response: 200 Success
         "hourly_rate": "90.0000", // default null, only if bill_by = 2
         "budget": "900000.0000", // default null, only if budget_by = 2
         "budget_hours": "1230.00", // default null, only if budget_by = 1
-        "created": "0000-00-00 00:00:00",
-        "modified": "2014-04-15 15:13:22",
+        "createdAt": "0000-00-00 00:00:00",
+        "updatedAt": "2014-04-15 15:13:22",
         "status": 1,
         "client_id" : 1,
         "client" : {
           "id" : 1,
           "currency_id" : 1,
-          "created" : "0000-00-00 00:00:00",
-          "modified" : "0000-00-00 00:00:00",
+          "createdAt" : "0000-00-00 00:00:00",
+          "updatedAt" : "0000-00-00 00:00:00",
           "name" : "Client 1"
         },
         "color_id": 1,
@@ -46,8 +46,8 @@ HTTP Response: 200 Success
           "id": 1,
           "label": "red",
           "hex": "ff0000",
-          "created": "2014-04-08 15:12:51",
-          "modified": "2014-04-08 15:12:51"
+          "createdAt": "2014-04-08 15:12:51",
+          "updatedAt": "2014-04-08 15:12:51"
         },
         "user_assignments": [
             {
@@ -57,8 +57,8 @@ HTTP Response: 200 Success
                 "project_manager": false,
                 "hourly_rate": "", // default null, only if bill_by = 3
                 "budget_hours": "0.00", // default 0.00, only if budget_by = 3
-                "modified": "0000-00-00 00:00:00",
-                "created": "0000-00-00 00:00:00",
+                "updatedAt": "0000-00-00 00:00:00",
+                "createdAt": "0000-00-00 00:00:00",
                 "status": 1
             },
             {
@@ -73,8 +73,8 @@ HTTP Response: 200 Success
                 "billable": true,
                 "hourly_rate": "", // default null, only if bill_by = 4
                 "budget_hours": "0.00", // default 0.00, only if budget_by = 4
-                "created": "0000-00-00 00:00:00",
-                "modified": "0000-00-00 00:00:00",
+                "createdAt": "0000-00-00 00:00:00",
+                "updatedAt": "0000-00-00 00:00:00",
                 "status": 1
             },
             {

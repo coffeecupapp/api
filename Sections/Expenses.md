@@ -22,7 +22,7 @@ HTTP Response: 200 Success
       {
         "id" : 1,
         "status" : 1,
-        "modified" : "2014-02-08 22:31:18",
+        "updatedAt" : "2014-02-08 22:31:18",
         "receipt_url" : "www.google.de",
         "project" : {
           "budget" : "900000.0000",
@@ -31,8 +31,8 @@ HTTP Response: 200 Success
           "code" : "PR1",
           "hourly_rate" : "90.0000",
           "invoice_type_index" : 0,
-          "created" : "0000-00-00 00:00:00",
-          "modified" : "0000-00-00 00:00:00",
+          "createdAt" : "0000-00-00 00:00:00",
+          "updatedAt" : "0000-00-00 00:00:00",
           "comment" : "",
           "client_id" : 1,
           "name" : "Projekt 1"
@@ -41,23 +41,23 @@ HTTP Response: 200 Success
         "type" : {
           "unit_price" : "12.4400",
           "id" : 1,
-          "created" : "0000-00-00 00:00:00",
+          "createdAt" : "0000-00-00 00:00:00",
           "label" : "expensetypename",
-          "modified" : "0000-00-00 00:00:00",
+          "updatedAt" : "0000-00-00 00:00:00",
           "unit_label" : "€"
         },
         "comment" : "dasdasd",
         "price" : "44.3300",
         "date" : "2014-02-08 22:31:18",
         "type_id" : 1,
-        "created" : "2014-02-08 22:31:18",
+        "createdAt" : "2014-02-08 22:31:18",
         "project_id" : 1,
         "user" : {
           "id" : 1,
           "type_index" : 0,
           "date_format" : "d.m.Y",
           "beginning_of_week" : 0,
-          "modified" : "2014-02-08 17:12:19",
+          "updatedAt" : "2014-02-08 17:12:19",
           "lastname" : "nachname",
           "last_active_at" : "0000-00-00 00:00:00",
           "hourly_rate" : "90.9900",
@@ -65,7 +65,7 @@ HTTP Response: 200 Success
           "firstname" : "vorname",
           "timeofday_format" : "H:i:s",
           "language" : "de_DE",
-          "created" : "2014-02-08 17:12:19",
+          "createdAt" : "2014-02-08 17:12:19",
           "timezone" : "Europe/Berlin",
           "role_index" : 0,
           "last_login_at" : "0000-00-00 00:00:00",
@@ -134,9 +134,9 @@ HTTP Response: 200 Success
       {
         "unit_price" : "12.4400",
         "id" : 1,
-        "created" : "0000-00-00 00:00:00",
+        "createdAt" : "0000-00-00 00:00:00",
         "label" : "expensetypename",
-        "modified" : "0000-00-00 00:00:00",
+        "updatedAt" : "0000-00-00 00:00:00",
         "unit_label" : "€"
         "icon" : "icon-search"
       }

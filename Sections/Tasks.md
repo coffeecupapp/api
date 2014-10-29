@@ -24,12 +24,12 @@ HTTP Response: 200 Success
         "status" : 1,
         "hourly_rate" : "90.9900",
         "color_id": 1,
-        "created" : "2014-02-08 22:35:00",
+        "createdAt" : "2014-02-08 22:35:00",
         "label" : "coding",
         "code" : "code",
         "billable" : true,
         "favorite" : false,
-        "modified" : "2014-02-08 22:35:00",
+        "updatedAt" : "2014-02-08 22:35:00",
         "projects" : [
           {
             "id" : 1,
@@ -41,8 +41,8 @@ HTTP Response: 200 Success
             "budget" : "900000.0000",
             "code" : "PR1",
             "hourly_rate" : "90.0000",
-            "created" : "0000-00-00 00:00:00",
-            "modified" : "0000-00-00 00:00:00",
+            "createdAt" : "0000-00-00 00:00:00",
+            "updatedAt" : "0000-00-00 00:00:00",
             "comment" : "",
             "name" : "Projekt 1"
           },
