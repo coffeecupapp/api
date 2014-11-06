@@ -1,5 +1,9 @@
 # Time Tracking
 
+The Time tracking API allows you to access and manipulate time entries in similar fashion to using the daily timesheet view. 
+This allows developers to create lightweight clients or widgets to track time beyond directly interacting with CoffeeCup through the web browser.
+For timestamps, the internally stored value is always in UTC (Universal Coordinated Time, traditionally known as Greenwich Mean Time, GMT).
+
 ## Get All Time Entries ##
 
 `GET /api/time_entry`
@@ -22,7 +26,7 @@ HTTP Response: 200 Success
       {
         "id" : 1,
         "status" : 1,
-        "spent_at" : "2014-02-08 22:50:40",
+        "spent_at" : "2014-02-08 22:50:40", // UTC
         "comment" : "neuerer kommentar",
         "duration" : 120, // in seconds
         "running" : true,
@@ -93,7 +97,7 @@ To show only the time_entries that have a time after "2013-01-01 17:23", pass th
 HTTP Response: 200 Success
 
 ## Get time entries For A Given Timeframe ##
-To show only the time_entries that have a time between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
+To show only the time_entries that have a time between "2013-01-01" and "2015-01-31" (UTC), pass these values (URL encoded).
 
 `GET /api/time_entry?filter=[{"property": "spent_at", "value" : "2013-01-01", "operator": ">="} , {"property": "spent_at", "value" : "2015-01-31", "operator": "<="}]`
 
@@ -109,7 +113,7 @@ You may post the following
 
 ```json
 {
-    "spent_at" : "2014-02-08 22:50:40",
+    "spent_at" : "2014-02-08 22:50:40", // UTC
     "task_id" : 1,
     "user_id" : 1,
     "project_id" : 1,
@@ -127,7 +131,7 @@ You may update selected attributes for a client.
 
 ```json
 {
-    "spent_at" : "2014-02-08 22:59:00"
+    "spent_at" : "2014-02-08 22:59:00" // UTC
 }
 ```
 
@@ -169,7 +173,7 @@ HTTP Response: 200 Success
         "totalCount": "1",
         "time_entry": {
             "id": 1,
-            "duration": 25,
+            "duration": 25, // seconds
             "running": false,
             ...
         }
@@ -184,7 +188,7 @@ HTTP Response: 200 Success
 ```json
 {
     "running" : false,
-    "duration": 1234
+    "duration": 1234 // seconds
 }
 ```
 
@@ -200,7 +204,7 @@ HTTP Response: 200 Success
         "totalCount": "1",
         "time_entry": {
             "id": 1,
-            "duration": 1234,
+            "duration": 1234, // seconds
             "running": false,
             ...
         }
