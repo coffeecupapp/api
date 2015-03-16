@@ -95,6 +95,23 @@ If there's an authentication error, we get a message like this:
 }
 ```
 
+## Password forgot
+
+if we forget a passwort we can make CoffeeCup send us an e-mail with reset instructions. We just send a `passwordforgotrequest` via JSON containing the e-mail like in the following cURL example:
+
+```sh
+curl \
+  -H "Content-Type: application/json" \
+  -d '{
+        "passwordforgotrequest":{
+          "email":"user@example.com"
+        }
+      }' \
+  https://company.coffeecupapp.com/v1/users/forgotPassword
+```
+
+## Misc
+
 *Chrome Users*: Check out the [Postman REST Client](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) to test requests.
 
 *Firefox Users*: We recommend using the [RestClient plugin](https://addons.mozilla.org/en-US/firefox/addon/restclient/) to help you make requests to and see responses from the CoffeeCup API.
