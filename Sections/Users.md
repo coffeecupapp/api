@@ -2,157 +2,251 @@
 
 ## Get My User
 
-`GET /api/user/me`
+`GET /v1/users/me`
 
 Example request
 
 ```shell
-curl -v -u admin:admin  \
-    -H "Content-type: application/json" \
-    -X GET http://dev.coffeecupapp.com/api/user/me
+curl \
+  -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
+  -X GET https://company.coffeecupapp.com/v1/users/me
 ```
 
 HTTP Response: 200 Success
 
 ```json
 {
-  "success" : true,
-  "message" : "Record Found",
-  "data" : {
-    "totalCount" : "1",
-    "user" :
-      {
-        "id" : 1,
-        "status" : 1,
-        "type_index" : 0,
-        "date_format" : "d.m.Y",
-        "updatedAt" : "2014-02-08 17:12:19",
-        "lastname" : "nachname",
-        "last_active_at" : "2014-02-08 17:12:19",
-        "hourly_rate" : "90.9900",
-        "image_type" : 0, // 0:default, 1:gravatar
-        "firstname" : "vorname",
-        "timeofday_format" : "H:i:s",
-        "language" : "de_DE",
-        "createdAt" : "2014-02-08 17:12:19",
-        "timezone" : "Europe/Berlin",
-        "role_index" : 0,
-        "last_login_at" : "2014-02-08 17:12:19",
-        "email" : "email@provider.com",
-        "beginning_of_week" : "monday",
-        "hours_of_work": {
-            "id" : 1,
-            "user_id" : 1,
-            "monday": "23.95",
-            "tuesday": "23.00",
-            "wednesday": "5.00",
-            "thursday": "8.00",
-            "friday": "7.00",
-            "saturday": "2.00",
-            "sunday": "0.00",
-        },
-        "user_level": 5
-      }
+  "user": {
+    "status": 1,
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "jd@example.com",
+    "hourlyRate": 100,
+    "dateFormat": "d.m.Y",
+    "timeofdayFormat": "H:i:s",
+    "language": "de_DE",
+    "timezone": "Europe/Berlin",
+    "roleIndex": 0,
+    "typeIndex": 0,
+    "beginningOfWeek": "monday",
+    "imageType": 1,
+    "userLevel": 2,
+    "passwordStatus": 2,
+    "showBudget": false,
+    "showHours": true,
+    "hoursMonday": 8,
+    "hoursTuesday": null,
+    "hoursWednesday": 8,
+    "hoursThursday": null,
+    "hoursFriday": 8,
+    "hoursSaturday": null,
+    "hoursSunday": null,
+    "id": 5
+  }
+}
+```
+
+## Get All Users
+
+`GET /v1/users`
+
+Example request
+
+```shell
+curl \
+  -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
+  -X GET https://company.coffeecupapp.com/v1/users
+```
+
+HTTP Response: 200 Success
+
+```json
+{
+  "users": [
+    {
+      "role": 0,
+      "status": 1,
+      "firstname": "Ulf",
+      "lastname": "Petersen",
+      "email": "up@example.com",
+      "hourlyRate": 100,
+      "dateFormat": "d.m.Y",
+      "timeofdayFormat": "H:i:s",
+      "language": "de_DE",
+      "timezone": "Europe/Berlin",
+      "roleIndex": null,
+      "typeIndex": 0,
+      "beginningOfWeek": "monday",
+      "imageType": 1,
+      "userLevel": 9999,
+      "passwordStatus": 2,
+      "showBudget": true,
+      "showHours": true,
+      "hoursMonday": 8,
+      "hoursTuesday": 8,
+      "hoursWednesday": 8,
+      "hoursThursday": 8,
+      "hoursFriday": 8,
+      "hoursSaturday": null,
+      "hoursSunday": null,
+      "id": 1
+    },
+    {
+      "role": 0,
+      "status": 1,
+      "firstname": "Tina",
+      "lastname": "Brot",
+      "email": "tb@example.com",
+      "hourlyRate": 99,
+      "dateFormat": "d.m.Y",
+      "timeofdayFormat": "H:i:s",
+      "language": "de_DE",
+      "timezone": "Europe/Berlin",
+      "roleIndex": 2,
+      "typeIndex": 1,
+      "beginningOfWeek": "monday",
+      "imageType": 1,
+      "userLevel": 11,
+      "passwordStatus": 2,
+      "showBudget": true,
+      "showHours": true,
+      "hoursMonday": 8,
+      "hoursTuesday": null,
+      "hoursWednesday": 8,
+      "hoursThursday": null,
+      "hoursFriday": 8,
+      "hoursSaturday": null,
+      "hoursSunday": null,
+      "id": 2
+    },
+    /* ... 10 more ... */
+  ],
+  "meta": {
+    "skip": 0,
+    "limit": 30,
+    "total": 12,
+    "criteria": {}
   }
 }
 ```
 
 
-## Get All Users
-
-`GET /api/user`
-
-Example request
-
-```shell
-curl -v -u admin:admin  \
-    -H "Content-type: application/json" \
-    -X GET http://dev.coffeecupapp.com/api/user
-```
-
-HTTP Response: 200 Success
-
-```json
-{
-  "data" : {
-    "totalCount" : "2",
-    "user" : [
-      {
-        ...
-      },
-      {
-        ...
-      }
-    ]
-  },
-  "success" : true,
-  "message" : "Record(s) Found"
-}
-```
+#TODO: update below
 
 ## Get Archived Users Only
 
-`GET /api/user?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+`GET /v1/users?status[]=0`
 
 HTTP Response: 200 Success
 
 ## Get Archived AND Non-Archived Users (DEFAULT Behaviour)
 
-`GET /api/user?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+`GET /v1/users?status[]=0&status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get Non-Archived Users Only
 
-`GET /api/user?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+`GET /v1/users?status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get All User of a certain project (1)
 
-`GET api/project/1/users`
+`GET /v1/userAssignments?project[]=1`
+
+For user-IDs 1, 3 and 37:
+
+`GET /v1/userAssignments?user[]=1&user[]=3&user[]=37`
 
 HTTP Response: 200 Success
 
-## Grant a users (2) access to a certain project (1)
+## TODO: Grant a users (2) access to a certain project (1)
 
-`PUT api/project/1/users/2`
+```
+PUSH /v1/userassignments/
+
+{
+  "userAssignment": {
+    "user": 2,
+    "project": 1
+  }
+}
+```
 
 HTTP Response: 200 Success
 
 ```json
 {
-    "success": "true",
-    "message": "Subresource Added",
-    "data": {
-        ...
-    }
+  "userAssignment": {
+    "account": null,
+    "user": 1,
+    "project": 1,
+    "role": null,
+    "status": 1,
+    "projectManager": null,
+    "hourlyRate": null,
+    "budgetHours": null,
+    "showBudget": null,
+    "showHours": null,
+    "id": 45
+  }
 }
+```
 
 ## Revoke a users (2) access to a certain project (1)
 
-`DELETE api/project/1/users/2`
+`GET /v1/userassignments/?user[]=1&project[]=2`
+
+HTTP Responnse: 200 Success
+
+```
+{
+  "userAssignments": [
+    {
+      "user": 1,
+      "project": 2,
+      "role": null,
+      "status": 1,
+      "projectManager": null,
+      "hourlyRate": null,
+      "budgetHours": null,
+      "showBudget": null,
+      "showHours": null,
+      "id": 47 /* <------ use this ID */
+    }
+  ],
+  "meta": {
+    "skip": 0,
+    "limit": 30,
+    "total": 1,
+    "criteria": {
+      "user": "1",
+      "project": "2"
+    }
+  }
+}
+```
+
+`DELETE /v1/userassignments/47`
 
 HTTP Response: 200 Success
 
 ```json
-{
-    "success": "true",
-    "message": "Sub-Resource Deleted",
-    "data": {
-        ...
-    }
-}
+null
+```
 
 ## Archive A User
 
 ### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE USER
 
-`PUT /api/user/#{user_id}`
+`PUT /v1/users/#{user_id}`
 
 ```json
 {
+  "user": {
     "status": "0"
+  }
 }
 ```
 HTTP Response: 200 OK
@@ -161,7 +255,7 @@ HTTP Response: 200 OK
 
 ## Upload A Profile Image
 
-`POST /api/file/upload/user_image/#{user_id}`
+`POST /v1/files/upload/user_image/#{user_id}`
 
 HTTP Response: 200 OK
 
@@ -183,11 +277,11 @@ Content-Type: image/jpeg
 
 ## GET The Users Profile Image
 
-`GET /api/file/get/user_image/#{user_id}?size=default&format=png`
+`GET /v1/files/get/user_image/#{user_id}/#{size}.#{format}
 
 ```
-size: default,small,large
-format: jpg,png,gif
+size: s, m, l
+format: jpg, png
 ```
 
 

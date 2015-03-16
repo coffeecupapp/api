@@ -74,12 +74,11 @@ Response:
 ```json
 {
   "user": {
-    "account": 1,
     "status": 1,
     "firstname": "John",
     "lastname": "Doe",
-    "email": "jd@example",
-    /* ... */
+    "email": "jd@example.com",
+    /* ... more fields ... */
   }
 }
 ```
