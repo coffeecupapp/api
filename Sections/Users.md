@@ -277,7 +277,7 @@ Content-Type: image/jpeg
 
 ## GET The Users Profile Image
 
-`GET /v1/files/get/user_image/#{user_id}/#{size}.#{format}
+`GET /v1/files/get/user_image/#{user_id}/#{size}.#{format}`
 
 ```
 size: s, m, l
