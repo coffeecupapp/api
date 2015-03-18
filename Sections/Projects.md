@@ -2,124 +2,89 @@
 
 ## Get All Projects
 
-`GET /api/project`
+`GET /v1/projects`
 
 Example request
 
 ```shell
-curl -v -u admin:admin  \
-	-H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/project
+curl \
+  -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
+  -X GET https://company.coffeecupapp.com/v1/projects
 ```
-
 HTTP Response: 200 Success
 
 ```json
 {
-  "data" : {
-    "totalCount" : "5",
-    "project" : [
-      {
-        "id": 1,
-        "name": "Projekt 1",
-        "bill_by": 0, // 0: not billable, 1: client hourly rate, 2: project hourly rate, 3: user hourly rate, 4: task hourly rate
-        "budget_by": 0, // 0: no budget, 1: total project hours, 2: total project amount, 3: budget per user, 4: budget per task 
-        "comment": "",
-        "internal": false,
-        "code": "PR1",
-        "hourly_rate": "90.0000", // default null, only if bill_by = 2
-        "budget": "900000.0000", // default null, only if budget_by = 2
-        "budget_hours": "1230.00", // default null, only if budget_by = 1
-        "createdAt": "0000-00-00 00:00:00",
-        "updatedAt": "2014-04-15 15:13:22",
-        "status": 1,
-        "client_id" : 1,
-        "client" : {
-          "id" : 1,
-          "currency_id" : 1,
-          "createdAt" : "0000-00-00 00:00:00",
-          "updatedAt" : "0000-00-00 00:00:00",
-          "name" : "Client 1"
-        },
-        "color_id": 1,
-        "color": {
-          "id": 1,
-          "label": "red",
-          "hex": "ff0000",
-          "createdAt": "2014-04-08 15:12:51",
-          "updatedAt": "2014-04-08 15:12:51"
-        },
-        "user_assignments": [
-            {
-                "id": 1,
-                "project_id": 1,
-                "user_id": 1,
-                "project_manager": false,
-                "hourly_rate": "", // default null, only if bill_by = 3
-                "budget_hours": "0.00", // default 0.00, only if budget_by = 3
-                "updatedAt": "0000-00-00 00:00:00",
-                "createdAt": "0000-00-00 00:00:00",
-                "status": 1
-            },
-            {
-                ...
-            }
-        ],
-        "task_assignments": [
-            {
-                "id": 1,
-                "project_id": 1,
-                "task_id": 1,
-                "billable": true,
-                "hourly_rate": "", // default null, only if bill_by = 4
-                "budget_hours": "0.00", // default 0.00, only if budget_by = 4
-                "createdAt": "0000-00-00 00:00:00",
-                "updatedAt": "0000-00-00 00:00:00",
-                "status": 1
-            },
-            {
-                ...
-            }
-        ]
-      },
-      {
-        ...
-      }
-    ]
-  },
-  "success" : true,
-  "message" : "Record(s) Found"
+  "projects": [
+    {
+      "client": 1,
+      "color": 1,
+      "status": 1,
+      "name": "Projekt 1",
+      "comment": "gutes Projekt",
+      "code": "PR1",
+      "billBy": 2,
+      "budgetBy": 2,
+      "hourlyRate": 90,
+      "budget": 1267.89,
+      "budgetHours": 0,
+      "internal": false,
+      "id": 1
+    },
+    {
+      "client": 2,
+      "color": 2,
+      "status": 1,
+      "name": "Projekt 2",
+      "comment": "schönes Projekt",
+      "code": "PR2",
+      "billBy": 0,
+      "budgetBy": 0,
+      "hourlyRate": 90,
+      "budget": 10000,
+      "budgetHours": 0,
+      "internal": false,
+      "id": 2
+    },
+    /* ... */
+  ],
+  "meta": {
+    "skip": 0,
+    "limit": 30,
+    "total": 8,
+    "criteria": {}
+  }
 }
 ```
 
 ## Get Archived Projects Only
 
-`GET /api/project?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+`GET /v1/projects?status[]=0`
 
 HTTP Response: 200 Success
 
 ## Get Archived AND Non-Archived Projects (DEFAULT Behaviour)
 
-`GET /api/project?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+`GET /v1/projects?status[]=0&status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get Non-Archived Projects Only
 
-`GET /api/project?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+`GET /v1/projects?status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get A Single Project
 
-`GET /api/project/#{project_id}`
+`GET /v1/projects/#{project_id}`
 
 HTTP Response: 200 Success
 
 
 ## Create A New Project
 
-`POST /api/project`
+`POST /v1/projects`
 
 HTTP Response: 201 Created
 
@@ -127,18 +92,15 @@ You need to post the following:
 
 ```json
 {
-        "color_id": 1,
-        "client_id": 1,
-        "name": "Project XY",
-        "comment": "foo",
-        "code": "PXY",
-        ...
+  "project": {
+    "name": "Motor X1337"
+  }
 }
 ```
 
 ## Update A Project
 
-`PUT /api/project/#{project_id}`
+`PUT /v1/projects/#{project_id}`
 
 HTTP Response: 200 OK
 
@@ -146,7 +108,9 @@ You may update selected attributes for a project.
 
 ```json
 {
-    "name": "Project new Name"
+  "project": {
+    "name": "Motor X1337 v2"
+  }
 }
 ```
 
@@ -154,62 +118,82 @@ You may update selected attributes for a project.
 
 ### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
 
-`PUT /api/project/#{project_id}`
+`PUT /v1/projects/#{project_id}`
 
 ```json
 {
-    "status": "0"
+  "project": {
+    "status": 0
+  }
 }
 ```
 HTTP Response: 200 OK
 
 ## Delete A Project
 
-`DELETE /api/project/#{project_id}`
+`DELETE /v1/projects/#{project_id}`
 
 If project does not have associated time entries or expenses CoffeeCup deletes it and returns
 HTTP Response: 200 OK
 
 otherwise project is not deleted and you'll get a HTTP Response: 500 Could not delete model.
 
-```json
-{
-    "success": false,
-    "message": "Could not delete model",
-    "data": {
-        "errorCode": 500,
-        "message": "Could not delete model"
-    }
-}
-```
-
 
 ## Get All Tasks Of A Project
 
-`GET /api/project/1/tasks`
+`GET /v1/taskAssignments?project[]=1`
+
+For task-IDs 1, 3 and 37:
+
+`GET /v1/tasks?id[]=1&id[]=3&id[]=37`
+
+HTTP Response: 200 Success
 
 ## Get All Users Of A Project
 
-`GET /api/project/1/users`
+`GET /v1/userAssignments?project[]=1`
+
+For user-IDs 1, 3 and 37:
+
+`GET /v1/users?id[]=1&id[]=3&id[]=37`
+
+HTTP Response: 200 Success
 
 ## Get user 3 who is on project 1
 or simply checking whether user 3 is on that project
 
-`GET /api/project/1/users/3`
+`GET /v1/userAssignments?user[]=3&project[]=1`
 
 ## Get user 3 who is also on project 3
 
-`GET /api/project/3/users/3`
+`GET /v1/userAssignments?user[]=3&project[]=3`
 
 ## Add user 3 also to project 2
 
-`PUT /api/project/2/users/3`
+```
+PUSH /v1/userAssignments
+
+{
+  "userAssignment": {
+    "user": 3,
+    "project":2
+  }
+}
+```
 
 ## Get all projects of user 3
 
-`GET /api/user/3/projects`
+`GET /v1/userAssignments?user[]=1`
+
+For project-IDs 1, 3 and 37:
+
+`GET /v1/projects?id[]=1&id[]=3&id[]=37`
 
 ## Remove user 3 from project 1 (but NOT delete the user itself)
 
-`DELETE /api/project/1/users/3`
+`GET /v1/userAssignments?user[]=3&project[]=1`
+
+With the returned ID:
+
+`DELETE /v1/userAssignments/#{id}`
 

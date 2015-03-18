@@ -154,7 +154,7 @@ HTTP Response: 200 Success
 
 For user-IDs 1, 3 and 37:
 
-`GET /v1/userAssignments?user[]=1&user[]=3&user[]=37`
+`GET /v1/users?id[]=1&id[]=3&id[]=37`
 
 HTTP Response: 200 Success
 
