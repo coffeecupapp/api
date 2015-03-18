@@ -130,9 +130,6 @@ HTTP Response: 200 Success
 }
 ```
 
-
-#TODO: update below
-
 ## Get Archived Users Only
 
 `GET /v1/users?status[]=0`
