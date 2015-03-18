@@ -2,93 +2,80 @@
 
 ## Get All Tasks
 
-`GET /api/task`
+`GET /v1/tasks`
 
 Example request
 
 ```shell
-curl -v -u admin:admin  \
-	-H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/task
+curl \
+  -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
+  -X GET https://company.coffeecupapp.com/v1/tasks
 ```
 
 HTTP Response: 200 Success
 
 ```json
 {
-  "data" : {
-    "totalCount" : "11",
-    "task" : [
-      {
-        "id" : 1,
-        "status" : 1,
-        "hourly_rate" : "90.9900",
-        "color_id": 1,
-        "createdAt" : "2014-02-08 22:35:00",
-        "label" : "coding",
-        "code" : "code",
-        "billable" : true,
-        "favorite" : false,
-        "updatedAt" : "2014-02-08 22:35:00",
-        "projects" : [
-          {
-            "id" : 1,
-            "status" : 1,
-            "color_id": 1,
-            "client_id" : 1,
-            "invoice_type_index" : 0,
-            "budget_type_index" : 0,
-            "budget" : "900000.0000",
-            "code" : "PR1",
-            "hourly_rate" : "90.0000",
-            "createdAt" : "0000-00-00 00:00:00",
-            "updatedAt" : "0000-00-00 00:00:00",
-            "comment" : "",
-            "name" : "Projekt 1"
-          },
-          {
-            ...
-          }
-        ]
-      },
-      {
-        ...
-      }
-    ]
-  },
-  "success" : true,
-  "message" : "Record(s) Found"
+  "tasks": [
+    {
+      "status": 1,
+      "label": "Coding",
+      "code": "cdng",
+      "hourlyRate": 90,
+      "favorite": true,
+      "billable": true,
+      "color": 11,
+      "id": 1
+    },
+    {
+      "status": 1,
+      "label": "Design",
+      "code": "dsgn",
+      "hourlyRate": 333,
+      "favorite": true,
+      "billable": true,
+      "color": 11,
+      "id": 2
+    },
+    /* ... */
+  ],
+  "meta": {
+    "skip": 0,
+    "limit": 30,
+    "total": 11,
+    "criteria": {}
+  }
 }
 ```
 
 ## Get Archived Tasks Only
 
-`GET /api/task?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+`GET /v1/tasks?status[]=0`
 
 HTTP Response: 200 Success
 
 ## Get Archived AND Non-Archived Tasks (DEFAULT Behaviour)
 
-`GET /api/task?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+`GET /v1/tasks?status[]=0&status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get Non-Archived Tasks Only
 
-`GET /api/task?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+`GET /v1/tasks?status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get A Task
 
-`GET /api/task/#{task_id}`
+`GET /v1/tasks/#{task_id}`
 
 HTTP Response: 200 Success
 
 
 ## Create A New Task
 
-`POST /api/task`
+`POST /v1/tasks`
 
 HTTP Response: 201 Created
 
@@ -96,17 +83,15 @@ You need to post the following:
 
 ```json
 {
-    "hourly_rate" : "90",
-    "color_id": 1,
-    "label": "design",
-    "billable": 1,
-    "favorite": 0
+  "task": {
+    "label": "Icons designen"
+  }
 }
 ```
 
 ## Update A Task
 
-`PUT /api/task/#{task_id}`
+`PUT /v1/tasks/#{task_id}`
 
 HTTP Response: 200 OK
 
@@ -114,8 +99,9 @@ You may update selected attributes for a task.
 
 ```json
 {
-    "label": "Tasks new Name",
-    "billable" : 0
+  "task": {
+    "favorite": true
+  }
 }
 ```
 
@@ -124,11 +110,13 @@ You may update selected attributes for a task.
 
 ### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE TASK ENTRY?
 
-`PUT /api/task/#{task_id}`
+`PUT /v1/tasks/#{task_id}`
 
 ```json
 {
-    "status": "0"
+  "task": {
+    "status": 0
+  }
 }
 ```
 HTTP Response: 200 OK
@@ -136,35 +124,43 @@ HTTP Response: 200 OK
 
 ## Delete A Task
 
-`DELETE /api/task/#{task_id}`
+`DELETE /v1/tasks/#{task_id}`
 
 If task does not have associated time entries CoffeeCup deletes it and returns
 HTTP Response: 200 OK
 
 otherwise task is not deleted and you'll get a HTTP Response: 500 Could not delete model.
 
-```json
-{
-    "success": false,
-    "message": "Could not delete model",
-    "data": {
-        "errorCode": 500,
-        "message": "Could not delete model"
-    }
-}
-```
-
 
 ## Get All Projects that are allowed to track time using this task
 
-`GET /api/task/1/projects`
+`GET /v1/taskAssignments?task[]=1`
+
+For project-IDs 1, 3 and 37:
+
+`GET /v1/projects?id[]=1&id[]=3&id[]=37`
+
+HTTP Response: 200 Success
 
 ## To allow time tracking of task 3 in project 2, use
 
-`PUT /api/project/2/tasks/3`
+```
+PUSH /v1/taskAssignments
+
+{
+  "taskAssignment": {
+    "task": 3,
+    "project":2
+  }
+}
+```
 
 ## To prevent a certain task 2 to be used within a project 3, use
 
-`DELETE /api/project/3/task/2`
+`GET /v1/taskAssignments?task[]=2&project[]=3`
+
+With the returned ID:
+
+`DELETE /v1/taskAssignments/#{id}`
 
 
