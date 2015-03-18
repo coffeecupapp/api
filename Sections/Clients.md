@@ -2,82 +2,65 @@
 
 ## Get All Clients
 
-`GET /api/client`
+`GET /v1/users`
 
 Example request
 
 ```shell
-curl -v -u admin:admin  \
-	-H "Content-type: application/json" \
-	-X GET http://dev.coffeecupapp.com/api/client
+curl \
+  -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
+  -X GET https://company.coffeecupapp.com/v1/clients
 ```
-
 HTTP Response: 200 Success
 
 ```json
 {
-    "success":true,
-    "message":"Record(s) Found",
-    "data":{
-        "totalCount":"10",
-        "client":[{
-            "id":"1",
-            "status": 1,
-            "hourly_rate":"90.9900",
-            "name":"Client 1",
-            "website": "www.client1.de",
-            "code": "CL1",
-            "createdAt":"0000-00-00 00:00:00",
-            "updatedAt":"0000-00-00 00:00:00",
-            "currency":"EUR",
-            "projects":[{
-                "id":"1",
-                "client_id":"1",
-                "name":"Projekt 1",
-                "invoice_type_index":null,
-                "budget_type_index":null,
-                "comment":null,
-                "code":"PR1",
-                "hourly_rate":"90.0000",
-                "budget":"900000.0000",
-                "createdAt":"0000-00-00 00:00:00",
-                "updatedAt":"0000-00-00 00:00:00"
-            },{
-            ...
-            }],
-            "contacts":[{
-                "id":"1",
-                "client_id":"1",
-                "country":"DE",
-                "firstname":"Vorname",
-                "lastname":"Nachname",
-                "title":"Dr.",
-                "email":"email@provider.com",
-                "phone":"1234",
-                "phone_mobile":"1212121",
-                "fax":null,
-                "street": "Beispielstr. 12",
-                "address_addon": "3. Stock",
-                "postcode":null,
-                "city":null,
-                "comment":null,
-                "createdAt":"0000-00-00 00:00:00",
-                "updatedAt":"0000-00-00 00:00:00"
-            }]
-        },{
-        ...
-        }]
-    }
+  "clients": [
+    {
+      "status": 0,
+      "name": "Mustermann-Soft AG",
+      "website": "www.example.com",
+      "code": "mms",
+      "hourlyRate": 90,
+      "imageType": 0,
+      "id": 1
+    },
+    {
+      "status": 1,
+      "name": "Musterfrau-Auto GmbH",
+      "website": "www.example.com",
+      "code": "mfa",
+      "hourlyRate": 110,
+      "imageType": 0,
+      "id": 2
+    },
+    {
+      "status": 1,
+      "name": "Musterkind-Toys GbR",
+      "website": "www.example.com",
+      "code": "mkt",
+      "hourlyRate": 50,
+      "imageType": 0,
+      "id": 3
+    },
+    /* ... */
+  ],
+  "meta": {
+    "skip": 0,
+    "limit": 30,
+    "total": 13,
+    "criteria": {}
+  }
 }
 ```
 
-### You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
+### TODO: You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
 `GET /api/client?filter=[{"property": "updatedAt", "value" : "2013-01-01 17:23", "operator": ">="}]`
 
 HTTP Response: 200 Success
 
-### You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
+### TODO: You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
 
 `GET /api/client?filter=[{"property": "createdAt", "value" : "2013-01-01", "operator": ">="} , {"property": "createdAt", "value" : "2015-01-31", "operator": "<="}]`
 
@@ -86,49 +69,32 @@ HTTP Response: 200 Success
 
 ## Get Archived Clients Only
 
-`GET /api/client?filter=[{"property": "status", "value" : "0", "operator": "="}]`
+`GET /v1/clients?status[]=0`
 
 HTTP Response: 200 Success
 
 ## Get Archived AND Non-Archived Clients (DEFAULT Behaviour)
 
-`GET /api/client?filter=[{"property": "status", "value" : "0", "operator": ">="}]`
+`GET /v1/clients?status[]=0&status[]=1`
 
 HTTP Response: 200 Success
 
 ## Get Non-Archived Clients Only
 
-`GET /api/client?filter=[{"property": "status", "value" : "1", "operator": "="}]`
+`GET /v1/clients?status[]=1`
 
 HTTP Response: 200 Success
 
 
 ## Get A Client
 
-`GET /api/client/#{client_id}`
+`GET /v1/clients/#{client_id}`
 
 HTTP Response: 200 Success
 
-```json
-{
-    "success":true,
-    "message":"Record(s) Found",
-    "data":{
-        "totalCount":"10",
-        "client":{
-            "id":"1",
-            "currency_id":"1",
-            "name":"Client 1",
-            ...
-        }
-    }
-}
-
-```
-
 ## Create A New Client
 
-`POST /api/client`
+`POST /v1/clients`
 
 HTTP Response: 201 Created
 
@@ -136,34 +102,15 @@ You need to post the following:
 
 ```json
 {
-    "currency_id": 1,
-    "name": "Client xy",
-    "contacts": [{
-        "country_id": "1",
-        "firstname": "Vorname 4",
-        "lastname": "Nachname 4",
-        "title": null,
-        "email": "foo@bar.com",
-        "phone": 12121212,
-        "phone_mobile": null,
-        "fax": null,
-        "street": null,
-        "address_addon": null,
-        "postcode": null,
-        "city": null,
-        "comment": null,
-        "createdAt": "2014-02-09 17:23:51",
-        "updatedAt": "2014-02-09 17:23:51"
-    },
-    {
-        ...
-    }]
+  "client": {
+    "name": "Ultra Motorradreifen UG (haftungsbeschränkt)"
+  }
 }
 ```
 
 ## Update A Client
 
-`PUT /api/client/#{client_id}`
+`PUT /v1/clients/#{client_id}`
 
 HTTP Response: 200 OK
 
@@ -171,7 +118,9 @@ You may update selected attributes for a client.
 
 ```json
 {
-    "name": "Clients new Name"
+  "client": {
+    "name": "Ultra Motorradreifen GmbH"
+  }
 }
 ```
 
@@ -180,39 +129,30 @@ You may update selected attributes for a client.
 
 ### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE CLIENT
 
-`PUT /api/client/#{client_id}`
+`PUT /v1/clients/#{client_id}`
 
 ```json
 {
-    "status": "0"
+  "client": {
+    "status": 0
+  }
 }
 ```
 HTTP Response: 200 OK
 
 ## Delete A Client
 
-`DELETE /api/client/#{client_id}`
+`DELETE /v1/clients/#{client_id}`
 
 If client does not have associated projects and/or time entries CoffeeCup deletes it and returns
 HTTP Response: 200 OK
 
 otherwise client is not deleted and you'll get a HTTP Response: 500 Could not delete model.
 
-```json
-{
-    "success": false,
-    "message": "Could not delete model",
-    "data": {
-        "errorCode": 500,
-        "message": "Could not delete model"
-    }
-}
-```
-
 
 ## Upload A Client Image
 
-`POST /api/file/upload/client_image/#{user_id}`
+`POST /v1/files/upload/client_image/#{user_id}`
 
 HTTP Response: 200 OK
 
@@ -232,13 +172,13 @@ Content-Type: image/jpeg
 ------------------------------E19zNvXGzXaLvS5C
 ```
 
-## GET The Clients Image
+## GET The Client's Profile Image
 
-`GET /api/file/get/client_image/#{user_id}?size=default&format=png`
+`GET /v1/files/get/client_image/#{user_id}/#{size}.#{format}`
 
 ```
-size: default,small,large
-format: jpg,png,gif
+size: s, m, l
+format: jpg, png
 ```
 
 
