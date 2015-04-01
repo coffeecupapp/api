@@ -99,17 +99,17 @@ To show the time_entries of a certain user and project, combine the above (URL e
 
 HTTP Response: 200 Success
 
-## TODO: Get time entries by Date ##
+## Get time entries by Date ##
 To show only the time_entries that have a time after "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
-`GET /api/time_entry?filter=[{"property": "spent_at", "value" : "2013-01-01 17:23", "operator": ">="}]`
+`GET /v1/timeentries?where={"spentAt":{">=": "2013-01-01 17:23"}}`
 
 HTTP Response: 200 Success
 
-## TODO: Get time entries For A Given Timeframe ##
+## Get time entries For A Given Timeframe ##
 To show only the time_entries that have a time between "2013-01-01" and "2015-01-31" (UTC), pass these values (URL encoded).
 
-`GET /api/time_entry?filter=[{"property": "spent_at", "value" : "2013-01-01", "operator": ">="} , {"property": "spent_at", "value" : "2015-01-31", "operator": "<="}]`
+`GET /v1/timeentries?where={"spentAt":{">=": "2013-01-01", "<=": "2015-01-31"}}`
 
 HTTP Response: 200 Success
 
