@@ -54,9 +54,9 @@ HTTP Response: 200 Success
 }
 ```
 
-### TODO: You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
+### You can filter by modified. To show only the clients that have been updated since "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
-`GET /api/client?filter=[{"property": "updatedAt", "value" : "2013-01-01 17:23", "operator": ">="}]`
+`GET /v1/clients?where={"updatedAt":{">=": "2013-01-01 17:23"}}`
 
 HTTP Response: 200 Success
 
