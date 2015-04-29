@@ -109,7 +109,7 @@ HTTP Response: 200 Success
 ## Get time entries For A Given Timeframe ##
 To show only the time_entries that have a time between "2013-01-01" and "2015-01-31" (UTC), pass these values (URL encoded).
 
-`GET /v1/timeentries?where={"spentAt":{">=": "2013-01-01", "<=": "2015-01-31"}}`
+`GET /v1/timeentries?where={"spentAt":{">=": "2013-01-01 00:00", "<=": "2015-01-31 23:59"}}`
 
 HTTP Response: 200 Success
 
