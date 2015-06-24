@@ -28,7 +28,6 @@ HTTP Response: 200 Success
       "hourlyRate": 90,
       "budget": 1267.89,
       "budgetHours": 0,
-      "internal": false,
       "id": 1
     },
     {
@@ -43,7 +42,6 @@ HTTP Response: 200 Success
       "hourlyRate": 90,
       "budget": 10000,
       "budgetHours": 0,
-      "internal": false,
       "id": 2
     },
     /* ... */
