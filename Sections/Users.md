@@ -9,7 +9,7 @@ Example request
 ```shell
 curl \
   -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
-  -X GET https://company.coffeecupapp.com/v1/users/me
+  -X GET https://api.coffeecupapp.com/v1/users/me
 ```
 
 HTTP Response: 200 Success
@@ -55,7 +55,7 @@ Example request
 ```shell
 curl \
   -H "Authorization: Bearer 14df41535ce02fd3f69a53ab80184a691337f80a" \
-  -X GET https://company.coffeecupapp.com/v1/users
+  -X GET https://api.coffeecupapp.com/v1/users
 ```
 
 HTTP Response: 200 Success

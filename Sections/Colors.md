@@ -8,7 +8,7 @@ Example request
 
 ```shell
 curl \
-  -X GET https://company.coffeecupapp.com/v1/colors
+  -X GET https://api.coffeecupapp.com/v1/colors
 ```
 
 HTTP Response: 200 Success

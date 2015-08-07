@@ -1,6 +1,6 @@
 # OAuth2 Authentication
 
-To get started with the CoffeeCup API, we need to retrieve an access token and a refresh token from the server. It can be retrieved using the username and password.
+To get started with the CoffeeCup API as the server admin, we need to retrieve an access token and a refresh token from the server. It can be retrieved with the `client_credentials` grant type.
 HTTPS is required for accessing the API.
 
 ## Retrieving the tokens
@@ -10,14 +10,10 @@ We send the parameters as shown in the example below via `x-www-form-urlencoded`
 [cURL](http://en.wikipedia.org/wiki/CURL) example (password is saved to console history!):
 
 ```sh
-cc_username=USERNAME
-cc_password=PASSWORD
 cc_client_id=CLIENT_ID
 cc_client_secret=CLIENT_SECRET
-cc_origin=ORIGIN_URL # determines which coffeecup account will be used
 
-curl -d "grant_type=password&username=$cc_username&password=$cc_password&client_id=$cc_client_id&client_secret=$cc_client_secret" \
--H "Origin: $cc_origin" \
+curl -d "grant_type=client_credentials&client_id=$cc_client_id&client_secret=$cc_client_secret" \
 -X POST https://api.coffeecupapp.com/oauth2/token
 ```
 
@@ -61,29 +57,7 @@ Response:
 
 To interact with the CoffeeCup API, we add the `access_token` via HTTP header to a request.
 
-In the following cURL example, we return the current user:
-
-```sh
-cc_access_token=ACCESS_TOKEN
-
-curl \
-  -H "Authorization: Bearer $cc_access_token" \
-  -X GET https://api.coffeecupapp.com/v1/users/me
-```
-
-Response:
-
-```json
-{
-  "user": {
-    "status": 1,
-    "firstname": "John",
-    "lastname": "Doe",
-    "email": "jd@example.com",
-    /* ... more fields ... */
-  }
-}
-```
+Please look at other sections for examples.
 
 If there's an authentication error, we get a message like this:
 
@@ -96,20 +70,6 @@ If there's an authentication error, we get a message like this:
 }
 ```
 
-## Password forgot
-
-if we forget a passwort we can make CoffeeCup send us an e-mail with reset instructions. We just send a `passwordforgotrequest` via JSON containing the e-mail like in the following cURL example:
-
-```sh
-curl \
-  -H "Content-Type: application/json" \
-  -d '{
-        "passwordforgotrequest":{
-          "email":"user@example.com"
-        }
-      }' \
-  https://api.coffeecupapp.com/v1/users/forgotPassword
-```
 
 ## Misc
 
