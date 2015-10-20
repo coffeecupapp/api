@@ -5,11 +5,15 @@
 
 `GET /v1/analytics/projects`
 
-
 ###Multiple project analytics (sparse list):
 
-`GET /v1/analytics/projects`
-`GET /v1/analytics/projects?project[]=`**`PROJECT_ID`**`project[]=`**`PROJECT_ID`**
+<code>
+GET /v1/analytics/projects
+</code>
+
+<code>
+GET /v1/analytics/projects?project[]=<b>PROJECT_ID</b>&project[]=<b>PROJECT_ID</b>
+</code>
 
 HTTP Response: 200 Success
 
