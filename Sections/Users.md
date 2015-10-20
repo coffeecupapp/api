@@ -22,15 +22,23 @@ HTTP Response: 200 Success
     "lastname": "Doe",
     "email": "jd@example.com",
     "hourlyRate": 100,
-    "dateFormat": "d.m.Y",
-    "timeofdayFormat": "H:i:s",
+    "dateFormat": "MM/DD/YYYY",
+    // possible values: 'hh:mma'=TIME_FORMAT_12, 'HH:mm'=TIME_FORMAT_24
+    "timeFormat": "hh:mma",
+    // possible values: 0=hours:minutes, 1=decimal format
+    "durationFormat": 1,
     "language": "de_DE",
     "timezone": "Europe/Berlin",
-    "roleIndex": 0,
+    // the key of the role model
+    "role": 1,
+    // possible values: 0=USER_TYPE_EMPLOYEE, 1=USER_TYPE_FREELANCER
     "typeIndex": 0,
+    // possible values: "saturday", "sunday", "monday"
     "beginningOfWeek": "monday",
+    // possible values: 0=UPLOAD, 1=GRAVATAR
     "imageType": 1,
     "userLevel": 2,
+    // possible values: 0=PASSWORD_STATUS_NEEDS_SET,1=PASSWORD_STATUS_NEEDS_RESET, 2=PASSWORD_STATUS_OK
     "passwordStatus": 2,
     "showBudget": false,
     "showHours": true,
@@ -41,6 +49,12 @@ HTTP Response: 200 Success
     "hoursFriday": 8,
     "hoursSaturday": null,
     "hoursSunday": null,
+    // possible values: 0=NONE, 1=DAILY
+    "hoursOfOfWorkType": 0,
+    // possible values: 1=TIME_ENTRY_COLOR_TASK,2=TIME_ENTRY_COLOR_PROJECT, 3=TIME_ENTRY_COLOR_CLEAN
+    "timeEntryBackgroundColor": 1,
+    "visibleDaysPerWeek": 7,
+    "holidaysPerYear": 28,
     "id": 5
   }
 }
@@ -70,11 +84,12 @@ HTTP Response: 200 Success
       "lastname": "Petersen",
       "email": "up@example.com",
       "hourlyRate": 100,
-      "dateFormat": "d.m.Y",
-      "timeofdayFormat": "H:i:s",
+      "dateFormat": "MM/DD/YYYY",
+      "timeFormat": "hh:mma",
+      "durationFormat": 1,
       "language": "de_DE",
       "timezone": "Europe/Berlin",
-      "roleIndex": null,
+      "role": 2,
       "typeIndex": 0,
       "beginningOfWeek": "monday",
       "imageType": 1,
@@ -89,6 +104,10 @@ HTTP Response: 200 Success
       "hoursFriday": 8,
       "hoursSaturday": null,
       "hoursSunday": null,
+      "hoursOfOfWorkType": 0,
+      "timeEntryBackgroundColor": 1,
+      "visibleDaysPerWeek": 7,
+      "holidaysPerYear": 28,
       "id": 1
     },
     {
@@ -98,11 +117,12 @@ HTTP Response: 200 Success
       "lastname": "Brot",
       "email": "tb@example.com",
       "hourlyRate": 99,
-      "dateFormat": "d.m.Y",
-      "timeofdayFormat": "H:i:s",
+      "dateFormat": "MM/DD/YYYY",
+      "timeFormat": "hh:mma",
+      "durationFormat": 1,
       "language": "de_DE",
       "timezone": "Europe/Berlin",
-      "roleIndex": 2,
+      "role": 25,
       "typeIndex": 1,
       "beginningOfWeek": "monday",
       "imageType": 1,
@@ -117,6 +137,10 @@ HTTP Response: 200 Success
       "hoursFriday": 8,
       "hoursSaturday": null,
       "hoursSunday": null,
+      "hoursOfOfWorkType": 1,
+      "timeEntryBackgroundColor": 1,
+      "visibleDaysPerWeek": 7,
+      "holidaysPerYear": 28,
       "id": 2
     },
     /* ... 10 more ... */
@@ -285,4 +309,3 @@ format: jpg, png
 HTTP Response: 200 OK
 
 Perform a simple GET on the Profile Image URL to receive the image data.
-
