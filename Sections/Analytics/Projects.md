@@ -43,7 +43,9 @@ HTTP Response: 200 Success
 
 ###Single project analytics (detailed):
 
-`GET /v1/analytics/projects?project=`**`PROJECT_ID`**
+<code>
+GET /v1/analytics/projects?project=<b>PROJECT_ID</b>
+</code>
 
 HTTP Response: 200 Success
 
