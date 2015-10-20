@@ -1,16 +1,13 @@
-# Analytics
-
-## Project
+# Project Analytics
 
 
 `GET /v1/analytics/projects`
 
-###Multiple project analytics (sparse list):
+##Multiple project analytics (sparse list):
 
 <code>
 GET /v1/analytics/projects
 </code>
-
 <code>
 GET /v1/analytics/projects?project[]=<b>PROJECT_ID</b>&project[]=<b>PROJECT_ID</b>
 </code>
@@ -41,7 +38,7 @@ HTTP Response: 200 Success
 }
 ```
 
-###Single project analytics (detailed):
+##Single project analytics (detailed):
 
 <code>
 GET /v1/analytics/projects?project=<b>PROJECT_ID</b>
