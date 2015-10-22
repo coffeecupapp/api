@@ -25,16 +25,16 @@ HTTP Response: 200 Success
     "startTimestamp": 1411855200000,
     "endTimestamp": 1475618399000,
     "hours": {
-      "spent": 80249.81250000003,
-      "billable": 67686.01055555558,
+      "total": 80247.29250000003,
+      "spent": 67683.49055555557,
       "nonBillable": 12563.801944444444,
       "budget": 132,
       "outOfBudget": 24554.65027777778
     },
     "amount": {
-      "billable": 2512944.1472000005,
+      "spent": 2512692.1472000005,
       "budget": 700,
-      "outOfBudget": 2439232.1522
+      "outOfBudget": 2438980.1522
     }
   }
 }
