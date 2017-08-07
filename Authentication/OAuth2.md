@@ -14,7 +14,7 @@ cc_username=USERNAME
 cc_password=PASSWORD
 cc_client_id=CLIENT_ID
 cc_client_secret=CLIENT_SECRET
-cc_origin=ORIGIN_URL # determines which coffeecup account will be used
+cc_origin=ORIGIN_URL # determines which coffeecup account will be used, usually "https://your-domain.coffeecupapp.com"
 
 curl -d "grant_type=password&username=$cc_username&password=$cc_password&client_id=$cc_client_id&client_secret=$cc_client_secret" \
 -H "Origin: $cc_origin" \
@@ -80,7 +80,7 @@ Response:
     "firstname": "John",
     "lastname": "Doe",
     "email": "jd@example.com",
-    /* ... more fields ... */
+    /* ... more fields, see Users section ... */
   }
 }
 ```
@@ -96,9 +96,9 @@ If there's an authentication error, we get a message like this:
 }
 ```
 
-## Password forgot
+## Forgot Password
 
-if we forget a passwort we can make CoffeeCup send us an e-mail with reset instructions. We just send a `passwordforgotrequest` via JSON containing the e-mail like in the following cURL example:
+If we forget a passwort we can make CoffeeCup send us an e-mail with reset instructions. We just send a `passwordforgotrequest` via JSON containing the e-mail like in the following cURL example:
 
 ```sh
 curl \
