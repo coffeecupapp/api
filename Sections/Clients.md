@@ -66,13 +66,6 @@ HTTP Response: 200 Success
 
 HTTP Response: 200 Success
 
-### TODO: You can filter by created. To show only the clients that have been created between "2013-01-01" and "2015-01-31", pass these values (URL encoded).
-
-`GET /api/client?filter=[{"property": "createdAt", "value" : "2013-01-01", "operator": ">="} , {"property": "createdAt", "value" : "2015-01-31", "operator": "<="}]`
-
-HTTP Response: 200 Success
-
-
 ## Get Archived Clients Only
 
 `GET /v1/clients?status[]=0`
