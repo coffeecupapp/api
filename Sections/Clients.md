@@ -17,21 +17,25 @@ HTTP Response: 200 Success
 {
   "clients": [
     {
-      "status": 0,
+      "status": 0, # Client is archived
       "name": "Mustermann-Soft AG",
       "website": "www.example.com",
       "code": "mms",
       "hourlyRate": 90,
       "imageType": 0,
+      "createdAt": "2014-07-25T14:07:54.000Z",
+      "updatedAt": "2016-03-21T01:00:00.000Z",
       "id": 1
     },
     {
-      "status": 1,
+      "status": 1, # Client is active
       "name": "Musterfrau-Auto GmbH",
       "website": "www.example.com",
       "code": "mfa",
       "hourlyRate": 110,
       "imageType": 0,
+      "createdAt": "2015-10-12T16:15:29.000Z",
+      "updatedAt": "2017-07-25T11:07:54.000Z",
       "id": 2
     },
     {
@@ -41,6 +45,8 @@ HTTP Response: 200 Success
       "code": "mkt",
       "hourlyRate": 50,
       "imageType": 0,
+      "createdAt": "2017-03-10T11:43:15.000Z",
+      "updatedAt": "2017-07-27T14:07:54.000Z",
       "id": 3
     },
     /* ... */
