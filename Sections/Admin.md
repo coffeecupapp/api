@@ -1,5 +1,7 @@
 # Admin API
 
+These calls require us to be a Server Admin (see Authentication/OAuth2 Admin).
+
 ## Create a new account
 
 `PUT /v1/admin/createAccount`
