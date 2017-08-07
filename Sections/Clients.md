@@ -126,7 +126,7 @@ You may update selected attributes for a client.
 
 ## Archive A Client
 
-### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE CLIENT
+**Archiving a client cascades to projects associated them** (see Sections/Projects)
 
 `PUT /v1/clients/#{client_id}`
 
