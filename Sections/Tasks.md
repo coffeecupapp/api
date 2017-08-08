@@ -1,5 +1,12 @@
 # Tasks
 
+## Constants for enum fields
+
+### status
+
+`0` - Task archived
+`1` - Task active
+
 ## Get All Tasks
 
 `GET /v1/tasks`
@@ -23,7 +30,7 @@ HTTP Response: 200 Success
       "code": "cdng",
       "hourlyRate": 90,
       "favorite": true,
-      "billable": true,
+      "billable": true, // default value, can be overridden by TaskAssignemnt
       "color": 11,
       "id": 1
     },
@@ -131,36 +138,6 @@ HTTP Response: 200 OK
 
 otherwise task is not deleted and you'll get a HTTP Response: 500 Could not delete model.
 
+## Assignments to Projects
 
-## Get All Projects that are allowed to track time using this task
-
-`GET /v1/taskAssignments?task[]=1`
-
-For project-IDs 1, 3 and 37:
-
-`GET /v1/projects?id[]=1&id[]=3&id[]=37`
-
-HTTP Response: 200 Success
-
-## To allow time tracking of task 3 in project 2, use
-
-```
-PUSH /v1/taskAssignments
-
-{
-  "taskAssignment": {
-    "task": 3,
-    "project":2
-  }
-}
-```
-
-## To prevent a certain task 2 to be used within a project 3, use
-
-`GET /v1/taskAssignments?task[]=2&project[]=3`
-
-With the returned ID:
-
-`DELETE /v1/taskAssignments/#{id}`
-
-
+Assignments to projects are managed through `TaskAssignments`s (see Sections/TaskAssignemnts)
