@@ -1,3 +1,5 @@
+# CAUTION: MIGHT BE OUT OF DATE
+
 # Time Entry Analytics
 
 
