@@ -4,8 +4,9 @@
 
 ### status
 
-`0` - Task archived
-`1` - Task active
+- `0` - Task archived
+- `1` - Task active
+
 
 ## Get All Tasks
 

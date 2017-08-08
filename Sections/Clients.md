@@ -1,5 +1,18 @@
 # Clients
 
+## Constants for enum fields
+
+### status
+
+- `0` - Client archived
+- `1` - Client active
+
+### imageType
+
+- `0` - Uploaded avatar image
+- `1` - Avatar should be pulled from Gravatar
+
+
 ## Get All Clients
 
 `GET /v1/users`
@@ -23,8 +36,6 @@ HTTP Response: 200 Success
       "code": "mms",
       "hourlyRate": 90,
       "imageType": 0,
-      "createdAt": "2014-07-25T14:07:54.000Z",
-      "updatedAt": "2016-03-21T01:00:00.000Z",
       "id": 1
     },
     {
@@ -34,8 +45,6 @@ HTTP Response: 200 Success
       "code": "mfa",
       "hourlyRate": 110,
       "imageType": 0,
-      "createdAt": "2015-10-12T16:15:29.000Z",
-      "updatedAt": "2017-07-25T11:07:54.000Z",
       "id": 2
     },
     {
@@ -45,8 +54,6 @@ HTTP Response: 200 Success
       "code": "mkt",
       "hourlyRate": 50,
       "imageType": 0,
-      "createdAt": "2017-03-10T11:43:15.000Z",
-      "updatedAt": "2017-07-27T14:07:54.000Z",
       "id": 3
     },
     /* ... */

@@ -1,5 +1,13 @@
 # Users
 
+## Constants for enum fields
+
+### status
+
+- `0` - Color archived
+- `1` - Color active
+
+
 ## Get all colors
 
 `GET /v1/colors`

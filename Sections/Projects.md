@@ -4,24 +4,25 @@
 
 ### status
 
-`0` - Project archived
-`1` - Project active
+- `0` - Project archived
+- `1` - Project active
 
 ### budgetBy
 
-`0` - No Budget, billing by effort
-`1` - Budget based on total hours spend (`budgetHours` field)
-`2` - Budget based on total amount spent (`budget` field)
-`3` - Budget per user assigned to this project (see Sections/UserAssignments)
-`4` - Budget per task assigned to this project (see Sections/TaskAssignments)
+- `0` - No Budget, billing by effort
+- `1` - Budget based on total hours spend (`budgetHours` field)
+- `2` - Budget based on total amount spent (`budget` field)
+- `3` - Budget per user assigned to this project (see Sections/UserAssignments)
+- `4` - Budget per task assigned to this project (see Sections/TaskAssignments)
 
 ### billBy
 
-`0` - Do not apply an hourly rate for billing
-`1` - Bill by the hourly rate set on the client (see Sections/Clients)
-`2` - Bill by the hourly rate set on the project (`hourlyRate` field)
-`3` - Bill by the hourly rate set per user assigned (see Sections/UserAssignments)
-`4` - Bill by the hourly rate set per task assigned (see Sections/TaskAssignments)
+- `0` - Do not apply an hourly rate for billing
+- `1` - Bill by the hourly rate set on the client (see Sections/Clients)
+- `2` - Bill by the hourly rate set on the project (`hourlyRate` field)
+- `3` - Bill by the hourly rate set per user assigned (see Sections/UserAssignments)
+- `4` - Bill by the hourly rate set per task assigned (see Sections/TaskAssignments)
+
 
 ## Get All Projects
 

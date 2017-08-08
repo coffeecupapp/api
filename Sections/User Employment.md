@@ -4,9 +4,10 @@
 
 ### employmentType
 
-`0` - Employee
-`1` - Freelancer
-`2` - Former Employee
+- `0` - Employee
+- `1` - Freelancer
+- `2` - Former Employee
+
 
 ## Get All UserEmployments for specific User
 

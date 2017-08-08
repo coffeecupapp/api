@@ -4,8 +4,9 @@
 
 ### status
 
-`0` - TaskAssignment archived
-`1` - TaskAssignment active
+- `0` - TaskAssignment archived
+- `1` - TaskAssignment active
+
 
 ## Get All TaskAssignments
 

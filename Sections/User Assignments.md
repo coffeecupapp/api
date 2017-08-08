@@ -4,8 +4,9 @@
 
 ### status
 
-`0` - UserAssignment archived
-`1` - UserAssignment active
+- `0` - UserAssignment archived
+- `1` - UserAssignment active
+
 
 ## Get All UserAssignments
 

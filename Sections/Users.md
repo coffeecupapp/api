@@ -4,50 +4,50 @@
 
 ### status
 
-`0` - User archived
-`1` - User active
+- `0` - User archived
+- `1` - User active
 
 ### dateFormat
 
-`"MM/DD/YYYY"` - 05/25/2017
-`"DD/MM/YYYY"` - 25/05/2017
-`"YYYY-MM-DD"` - 2017-05-25
-`"DD.MM.YYYY"` - 25.05.2017
-`"YYYY.MM.DD"` - 2015.05.25
-`"YYYY/MM/DD"` - 2015/05/25
+- `"MM/DD/YYYY"` - 05/25/2017
+- `"DD/MM/YYYY"` - 25/05/2017
+- `"YYYY-MM-DD"` - 2017-05-25
+- `"DD.MM.YYYY"` - 25.05.2017
+- `"YYYY.MM.DD"` - 2015.05.25
+- `"YYYY/MM/DD"` - 2015/05/25
 
 ### timeFormat
 
-`"hh:mma"` - 03:45pm
-`"HH:mm"` - 15:45
+- `"hh:mma"` - 03:45pm
+- `"HH:mm"` - 15:45
 
 ### durationFormat
 
-`0` - 1:30 (hours:minutes)
-`1` - 1.50 (hours in decimal format)
+- `0` - 1:30 (hours:minutes)
+- `1` - 1.50 (hours in decimal format)
 
 ### beginningOfWeek
 
-`saturday`
-`sunday`
-`monday`
+- `saturday`
+- `sunday`
+- `monday`
 
 ### imageType
 
-`0` - Uploaded avatar image
-`1` - Avatar should be pulled from Gravatar
+- `0` - Uploaded avatar image
+- `1` - Avatar should be pulled from Gravatar
 
 ### passwordStatus
  
-`0` - Password needs to be set
-`1` - Password needs to be reset
-`2` - A valid password is valid
+- `0` - Password needs to be set
+- `1` - Password needs to be reset
+- `2` - A valid password is valid
 
 ### timeEntryBackgroundColor
 
-`1` - Color of TimeEntry based on Task
-`2` - Color of TimeEntry based on Project
-`3` - Styling is independent of Task / Project
+- `1` - Color of TimeEntry based on Task
+- `2` - Color of TimeEntry based on Project
+- `3` - Styling is independent of Task / Project
 
 
 ## Get My User
