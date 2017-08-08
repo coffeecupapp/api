@@ -20,8 +20,8 @@
 `0` - Do not apply an hourly rate for billing
 `1` - Bill by the hourly rate set on the client (see Sections/Clients)
 `2` - Bill by the hourly rate set on the project (`hourlyRate` field)
-`3` - Bill by the hourly rate set per user assigned
-`4` - Bill by the hourly rate set per task assigned
+`3` - Bill by the hourly rate set per user assigned (see Sections/UserAssignments)
+`4` - Bill by the hourly rate set per task assigned (see Sections/TaskAssignments)
 
 ## Get All Projects
 
@@ -159,62 +159,10 @@ HTTP Response: 200 OK
 
 otherwise project is not deleted and you'll get a HTTP Response: 500 Could not delete model.
 
+## Assigning Users
 
-## Get All Tasks Of A Project
+User assignments are managed through `UserAssignment`s (see Sections/UserAssignments)
 
-`GET /v1/taskAssignments?project[]=1`
+## Assigning Tasks
 
-For task-IDs 1, 3 and 37:
-
-`GET /v1/tasks?id[]=1&id[]=3&id[]=37`
-
-HTTP Response: 200 Success
-
-## Get All Users Of A Project
-
-`GET /v1/userAssignments?project[]=1`
-
-For user-IDs 1, 3 and 37:
-
-`GET /v1/users?id[]=1&id[]=3&id[]=37`
-
-HTTP Response: 200 Success
-
-## Get user 3 who is on project 1
-or simply checking whether user 3 is on that project
-
-`GET /v1/userAssignments?user[]=3&project[]=1`
-
-## Get user 3 who is also on project 3
-
-`GET /v1/userAssignments?user[]=3&project[]=3`
-
-## Add user 3 also to project 2
-
-```
-PUSH /v1/userAssignments
-
-{
-  "userAssignment": {
-    "user": 3,
-    "project":2
-  }
-}
-```
-
-## Get all projects of user 3
-
-`GET /v1/userAssignments?user[]=1`
-
-For project-IDs 1, 3 and 37:
-
-`GET /v1/projects?id[]=1&id[]=3&id[]=37`
-
-## Remove user 3 from project 1 (but NOT delete the user itself)
-
-`GET /v1/userAssignments?user[]=3&project[]=1`
-
-With the returned ID:
-
-`DELETE /v1/userAssignments/#{id}`
-
+Task assignments are managed through `TaskAssignment`s (see Sections/TaskAssignments)
