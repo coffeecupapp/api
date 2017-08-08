@@ -1,5 +1,55 @@
 # Users
 
+## Constants for enum fields
+
+### status
+
+`0` - User archived
+`1` - User active
+
+### dateFormat
+
+`"MM/DD/YYYY"` - 05/25/2017
+`"DD/MM/YYYY"` - 25/05/2017
+`"YYYY-MM-DD"` - 2017-05-25
+`"DD.MM.YYYY"` - 25.05.2017
+`"YYYY.MM.DD"` - 2015.05.25
+`"YYYY/MM/DD"` - 2015/05/25
+
+### timeFormat
+
+`"hh:mma"` - 03:45pm
+`"HH:mm"` - 15:45
+
+### durationFormat
+
+`0` - 1:30 (hours:minutes)
+`1` - 1.50 (hours in decimal format)
+
+### beginningOfWeek
+
+`saturday`
+`sunday`
+`monday`
+
+### imageType
+
+`0` - Uploaded avatar image
+`1` - Avatar should be pulled from Gravatar
+
+### passwordStatus
+ 
+`0` - Password needs to be set
+`1` - Password needs to be reset
+`2` - A valid password is valid
+
+### timeEntryBackgroundColor
+
+`1` - Color of TimeEntry based on Task
+`2` - Color of TimeEntry based on Project
+`3` - Styling is independent of Task / Project
+
+
 ## Get My User
 
 `GET /v1/users/me`
@@ -23,39 +73,42 @@ HTTP Response: 200 Success
     "email": "jd@example.com",
     "hourlyRate": 100,
     "dateFormat": "MM/DD/YYYY",
-    // possible values: 'hh:mma'=TIME_FORMAT_12, 'HH:mm'=TIME_FORMAT_24
     "timeFormat": "hh:mma",
-    // possible values: 0=hours:minutes, 1=decimal format
     "durationFormat": 1,
-    "language": "de_DE",
+    "language": "en_EN",
     "timezone": "Europe/Berlin",
-    // the key of the role model
-    "role": 1,
-    // possible values: 0=USER_TYPE_EMPLOYEE, 1=USER_TYPE_FREELANCER
-    "typeIndex": 0,
-    // possible values: "saturday", "sunday", "monday"
+    "uiState": "/** … **/",
     "beginningOfWeek": "monday",
-    // possible values: 0=UPLOAD, 1=GRAVATAR
-    "imageType": 1,
-    "userLevel": 2,
-    // possible values: 0=PASSWORD_STATUS_NEEDS_SET,1=PASSWORD_STATUS_NEEDS_RESET, 2=PASSWORD_STATUS_OK
+    "imageType": 2,
     "passwordStatus": 2,
-    "showBudget": false,
-    "showHours": true,
-    "hoursMonday": 8,
-    "hoursTuesday": null,
-    "hoursWednesday": 8,
-    "hoursThursday": null,
-    "hoursFriday": 8,
-    "hoursSaturday": null,
-    "hoursSunday": null,
-    // possible values: 0=NONE, 1=DAILY
-    "hoursOfOfWorkType": 0,
-    // possible values: 1=TIME_ENTRY_COLOR_TASK,2=TIME_ENTRY_COLOR_PROJECT, 3=TIME_ENTRY_COLOR_CLEAN
-    "timeEntryBackgroundColor": 1,
+    "vacationDaysPerYear": 28,
+    "imageFileToken": "GohinyByt4DyVRbERWPyD9txjfhXNx_2sJgY3e9c541aQI4ZduYAI1VoTYTp31tP",
+    "imageDirectoryURL": "http://localhost:1337/v1/files/get/user_image/GohinyByt4DyVRbERWPyD9txjfhXNx_2sJgY3e9c541aQI4ZduYAI1VoTYTp31tP/",
+    "allowConcurrentTimeEntries": false,
+    "favorite": false,
+    "emailHmacHash": "b098a1c3f9c59e4611c105b4d6927ef9be08837bce5879603a4eb991927ca2a4",
+    "jobLabel": null,
+    "department": null,
+    "bankName": null,
+    "ibanNumber": null,
+    "bicNumber": null,
+    "insuranceName": null,
+    "insuranceType": null,
+    "street": null,
+    "city": null,
+    "postCode": null,
+    "country": "DE",
+    "birthplace": null,
+    "birthday": null,
+    "mobileNumber": null,
+    "phoneNumber": null,
+    "privateEmail": null,
+    "faxNumber": null,
+    "id": 5,
+    "idHashed": "GohinyByt4DyVRbERWPyD9txjfhXNx_2sJgY3e9c541aQI4ZduYAI1VoTYTp31tP",
     "visibleDaysPerWeek": 7,
-    "holidaysPerYear": 28,
-    "id": 5
+    "timeEntryBackgroundColor": 1,
+    /** There are also fields from the currently valid UserEmployment included **/
   }
 }
 ```
@@ -78,71 +131,93 @@ HTTP Response: 200 Success
 {
   "users": [
     {
-      "role": 0,
-      "status": 1,
-      "firstname": "Ulf",
-      "lastname": "Petersen",
-      "email": "up@example.com",
-      "hourlyRate": 100,
-      "dateFormat": "MM/DD/YYYY",
-      "timeFormat": "hh:mma",
-      "durationFormat": 1,
-      "language": "de_DE",
-      "timezone": "Europe/Berlin",
-      "role": 2,
-      "typeIndex": 0,
-      "beginningOfWeek": "monday",
-      "imageType": 1,
-      "userLevel": 9999,
-      "passwordStatus": 2,
-      "showBudget": true,
-      "showHours": true,
-      "hoursMonday": 8,
-      "hoursTuesday": 8,
-      "hoursWednesday": 8,
-      "hoursThursday": 8,
-      "hoursFriday": 8,
-      "hoursSaturday": null,
-      "hoursSunday": null,
-      "hoursOfOfWorkType": 0,
-      "timeEntryBackgroundColor": 1,
-      "visibleDaysPerWeek": 7,
-      "holidaysPerYear": 28,
-      "id": 1
-    },
+    "status": 1,
+    "firstname": "John",
+    "lastname": "Doe",
+    "email": "jd@example.com",
+    "hourlyRate": 100,
+    "dateFormat": "MM/DD/YYYY",
+    "timeFormat": "hh:mma",
+    "durationFormat": 1,
+    "language": "en_EN",
+    "timezone": "Europe/Berlin",
+    "uiState": "/** … **/",
+    "beginningOfWeek": "monday",
+    "imageType": 2,
+    "passwordStatus": 2,
+    "vacationDaysPerYear": 28,
+    "imageFileToken": "GohinyByt4DyVRbERWPyD9txjfhXNx_2sJgY3e9c541aQI4ZduYAI1VoTYTp31tP",
+    "imageDirectoryURL": "https://cdn.coffeecupapp.com/user_image/GohinyByt4DyVRbERWPyD9txjfhXNx_2sJgY3e9c541aQI4ZduYAI1VoTYTp31tP/s.png",
+    "allowConcurrentTimeEntries": false,
+    "favorite": false,
+    "emailHmacHash": "b098a1c3f9c59e4611c105b4d6927ef9be08837bce5879603a4eb991927ca2a4",
+    "jobLabel": null,
+    "department": null,
+    "bankName": null,
+    "ibanNumber": null,
+    "bicNumber": null,
+    "insuranceName": null,
+    "insuranceType": null,
+    "street": null,
+    "city": null,
+    "postCode": null,
+    "country": "DE",
+    "birthplace": null,
+    "birthday": null,
+    "mobileNumber": null,
+    "phoneNumber": null,
+    "privateEmail": null,
+    "faxNumber": null,
+    "id": 5,
+    "idHashed": "GohinyByt4DyVRbERWPyD9txjfhXNx_2sJgY3e9c541aQI4ZduYAI1VoTYTp31tP",
+    "visibleDaysPerWeek": 7,
+    "timeEntryBackgroundColor": 1,
+    /** There are also fields from the currently valid UserEmployment included **/
+  },
     {
-      "role": 0,
-      "status": 1,
-      "firstname": "Tina",
-      "lastname": "Brot",
-      "email": "tb@example.com",
-      "hourlyRate": 99,
-      "dateFormat": "MM/DD/YYYY",
-      "timeFormat": "hh:mma",
-      "durationFormat": 1,
-      "language": "de_DE",
-      "timezone": "Europe/Berlin",
-      "role": 25,
-      "typeIndex": 1,
-      "beginningOfWeek": "monday",
-      "imageType": 1,
-      "userLevel": 11,
-      "passwordStatus": 2,
-      "showBudget": true,
-      "showHours": true,
-      "hoursMonday": 8,
-      "hoursTuesday": null,
-      "hoursWednesday": 8,
-      "hoursThursday": null,
-      "hoursFriday": 8,
-      "hoursSaturday": null,
-      "hoursSunday": null,
-      "hoursOfOfWorkType": 1,
-      "timeEntryBackgroundColor": 1,
-      "visibleDaysPerWeek": 7,
-      "holidaysPerYear": 28,
-      "id": 2
-    },
+    "status": 1,
+    "firstname": "Jane",
+    "lastname": "Smith",
+    "email": "js@example.com",
+    "hourlyRate": 100,
+    "dateFormat": "MM/DD/YYYY",
+    "timeFormat": "hh:mma",
+    "durationFormat": 1,
+    "language": "en_EN",
+    "timezone": "Europe/Berlin",
+    "uiState": "/** … **/",
+    "beginningOfWeek": "monday",
+    "imageType": 2,
+    "passwordStatus": 2,
+    "vacationDaysPerYear": 28,
+    "imageFileToken": null,
+    "imageDirectoryURL": null,
+    "allowConcurrentTimeEntries": false,
+    "favorite": false,
+    "emailHmacHash": "16a32f42d2cd831c83e3759127f11c789dcf703f2e25f75dab0e0d40ab668388",
+    "jobLabel": null,
+    "department": null,
+    "bankName": null,
+    "ibanNumber": null,
+    "bicNumber": null,
+    "insuranceName": null,
+    "insuranceType": null,
+    "street": null,
+    "city": null,
+    "postCode": null,
+    "country": "DE",
+    "birthplace": null,
+    "birthday": null,
+    "mobileNumber": null,
+    "phoneNumber": null,
+    "privateEmail": null,
+    "faxNumber": null,
+    "id": 6,
+    "idHashed": null,
+    "visibleDaysPerWeek": 7,
+    "timeEntryBackgroundColor": 1,
+    /** There are also fields from the currently valid UserEmployment included **/
+  },
     /* ... 10 more ... */
   ],
   "meta": {
@@ -181,81 +256,6 @@ For user-IDs 1, 3 and 37:
 `GET /v1/users?id[]=1&id[]=3&id[]=37`
 
 HTTP Response: 200 Success
-
-## TODO: Grant a users (2) access to a certain project (1)
-
-```
-PUSH /v1/userassignments/
-
-{
-  "userAssignment": {
-    "user": 2,
-    "project": 1
-  }
-}
-```
-
-HTTP Response: 200 Success
-
-```json
-{
-  "userAssignment": {
-    "account": null,
-    "user": 1,
-    "project": 1,
-    "role": null,
-    "status": 1,
-    "projectManager": null,
-    "hourlyRate": null,
-    "budgetHours": null,
-    "showBudget": null,
-    "showHours": null,
-    "id": 45
-  }
-}
-```
-
-## Revoke a users (2) access to a certain project (1)
-
-`GET /v1/userassignments/?user[]=1&project[]=2`
-
-HTTP Responnse: 200 Success
-
-```
-{
-  "userAssignments": [
-    {
-      "user": 1,
-      "project": 2,
-      "role": null,
-      "status": 1,
-      "projectManager": null,
-      "hourlyRate": null,
-      "budgetHours": null,
-      "showBudget": null,
-      "showHours": null,
-      "id": 47 /* <------ use this ID */
-    }
-  ],
-  "meta": {
-    "skip": 0,
-    "limit": 30,
-    "total": 1,
-    "criteria": {
-      "user": "1",
-      "project": "2"
-    }
-  }
-}
-```
-
-`DELETE /v1/userassignments/47`
-
-HTTP Response: 200 Success
-
-```json
-null
-```
 
 ## Archive A User
 
@@ -309,3 +309,11 @@ format: jpg, png
 HTTP Response: 200 OK
 
 Perform a simple GET on the Profile Image URL to receive the image data.
+
+## Assignments to Projects
+
+Assignments to projects are managed through `UserAssignment`s (see Sections/UserAssignemnts)
+
+## Employment Information
+
+Information on the employment arrangements is managed by `UserEmployment` (see Sections/UserEmployment)
