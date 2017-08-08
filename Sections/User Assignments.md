@@ -130,7 +130,8 @@ You may update selected attributes for a user assignment.
 
 ## Archive A User Assignment 
 
-Archiving a user assignment cascades to all time entries associated that are associated to both the user and project.
+**Archiving a task assignment cascades to time entries that are associated to both this project and user** (see Time Tracking Section)
+You can't create new or edit existing entries for archived user assignments.
 
 `PUT /v1/userAssignments/#{userAssignment_id}`
 

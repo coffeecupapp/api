@@ -133,7 +133,8 @@ You may update selected attributes for a client.
 
 ## Archive A Client
 
-**Archiving a client cascades to projects associated them** (see Sections/Projects)
+**Archiving a client cascades to projects associated to them** (see Projects Section)
+You can't create new projects for archived clients.
 
 `PUT /v1/clients/#{client_id}`
 

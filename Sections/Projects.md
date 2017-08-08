@@ -138,7 +138,8 @@ You may update selected attributes for a project.
 
 ## Archive A Project
 
-### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
+**Archiving a project cascades to task and user assignments associated to it** (see Task Assignments and User Assignments Sections)
+You can't assign new tasks or users to archived projects.
 
 `PUT /v1/projects/#{project_id}`
 

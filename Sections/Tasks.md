@@ -116,7 +116,8 @@ You may update selected attributes for a task.
 
 ## Archive A Task
 
-### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE TASK ENTRY?
+**Archiving a task cascades to task assignments associated to it** (see Task Assignments Section)
+You can't assign archived tasks to projects.
 
 `PUT /v1/tasks/#{task_id}`
 
