@@ -1,4 +1,6 @@
-# OAuth2 Authentication
+# OAuth2 Server Admin Authentication
+
+**Server Admin is a special role, distinct from Account Admin! You usually want to log in as an Account Admin (i.e. the user tagged as "ADMIN" in the Browser Client) instead; use the standard [OAuth2 Auth](OAuth2.md) to do so.**
 
 To get started with the CoffeeCup API as the server admin, we need to retrieve an access token and a refresh token from the server. It can be retrieved with the `client_credentials` grant type.
 HTTPS is required for accessing the API.
