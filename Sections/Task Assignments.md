@@ -130,7 +130,7 @@ You may update selected attributes for a task assignment.
 
 ## Archive A Task Assignment 
 
-**Archiving a task assignment cascades to time entries that are associated to both this project and task** (see Time Tracking Section)
+**Archiving a task assignment cascades to time entries that are associated to both this project and task** (see [Time Tracking section](Time%20Tracking.md))
 You can't create new or edit existing entries for archived task assignments.
 
 `PUT /v1/taskAssignments/#{taskAssignment_id}`

@@ -12,16 +12,16 @@
 - `0` - No Budget, billing by effort
 - `1` - Budget based on total hours spend (`budgetHours` field)
 - `2` - Budget based on total amount spent (`budget` field)
-- `3` - Budget per user assigned to this project (see Sections/UserAssignments)
-- `4` - Budget per task assigned to this project (see Sections/TaskAssignments)
+- `3` - Budget per user assigned to this project (see [User Assignments section](User%20Assignments.md))
+- `4` - Budget per task assigned to this project (see [Task Assignemnts section](Task%20Assignments.md))
 
 ### billBy
 
 - `0` - Do not apply an hourly rate for billing
-- `1` - Bill by the hourly rate set on the client (see Sections/Clients)
+- `1` - Bill by the hourly rate set on the client (see [Clients section](Clients.md))
 - `2` - Bill by the hourly rate set on the project (`hourlyRate` field)
-- `3` - Bill by the hourly rate set per user assigned (see Sections/UserAssignments)
-- `4` - Bill by the hourly rate set per task assigned (see Sections/TaskAssignments)
+- `3` - Bill by the hourly rate set per user assigned (see [User Assignments section](User%20Assignments.md))
+- `4` - Bill by the hourly rate set per task assigned (see [Task Assignemnts section](Task%20Assignments.md))
 
 
 ## Get All Projects
@@ -138,7 +138,7 @@ You may update selected attributes for a project.
 
 ## Archive A Project
 
-**Archiving a project cascades to task and user assignments associated to it** (see Task Assignments and User Assignments Sections)
+**Archiving a project cascades to task and user assignments associated to it** (see [Task Assignments](Task%20Assignments.md) and [User Assignments](User%20Assignments.md) Sections)
 You can't assign new tasks or users to archived projects.
 
 `PUT /v1/projects/#{project_id}`
@@ -163,8 +163,8 @@ otherwise project is not deleted and you'll get a HTTP Response: 500 Could not d
 
 ## Assigning Users
 
-User assignments are managed through `UserAssignment`s (see Sections/UserAssignments)
+User assignments are managed through [User Assignemnts](User%20Assignemnts.md). 
 
 ## Assigning Tasks
 
-Task assignments are managed through `TaskAssignment`s (see Sections/TaskAssignments)
+Task assignments are managed through [Task Assignemnts](Task%20Assignemnts.md).

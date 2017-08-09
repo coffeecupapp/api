@@ -45,8 +45,8 @@
 
 ### timeEntryBackgroundColor
 
-- `1` - Color of TimeEntry based on Task
-- `2` - Color of TimeEntry based on Project
+- `1` - Color of TimeEntry based on [Task](Tasks.md)
+- `2` - Color of TimeEntry based on [Project](Projects.md)
 - `3` - Styling is independent of Task / Project
 
 
@@ -312,8 +312,8 @@ Perform a simple GET on the Profile Image URL to receive the image data.
 
 ## Assignments to Projects
 
-Assignments to projects are managed through `UserAssignment`s (see Sections/UserAssignemnts)
+Assignments to projects are managed through [User Assignemnts](User%20Assignemnts.md). 
 
 ## Employment Information
 
-Information on the employment arrangements is managed by `UserEmployment` (see Sections/UserEmployment)
+Information on the employment arrangements is managed through [User Employments](User%20Employments.md)

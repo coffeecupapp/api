@@ -116,7 +116,7 @@ You may update selected attributes for a task.
 
 ## Archive A Task
 
-**Archiving a task cascades to task assignments associated to it** (see Task Assignments Section)
+**Archiving a task cascades to task assignments associated to it** (see [Task Assignments Section](Task%20Assignments.md))
 You can't assign archived tasks to projects.
 
 `PUT /v1/tasks/#{task_id}`
@@ -142,4 +142,4 @@ otherwise task is not deleted and you'll get a HTTP Response: 500 Could not dele
 
 ## Assignments to Projects
 
-Assignments to projects are managed through `TaskAssignments`s (see Sections/TaskAssignemnts)
+Assignments to projects are managed through [Task Assignments](Task%20Assignments.md).

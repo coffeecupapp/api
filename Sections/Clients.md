@@ -30,7 +30,7 @@ HTTP Response: 200 Success
 {
   "clients": [
     {
-      "status": 0, # Client is archived
+      "status": 0,
       "name": "Mustermann-Soft AG",
       "website": "www.example.com",
       "code": "mms",
@@ -39,7 +39,7 @@ HTTP Response: 200 Success
       "id": 1
     },
     {
-      "status": 1, # Client is active
+      "status": 1,
       "name": "Musterfrau-Auto GmbH",
       "website": "www.example.com",
       "code": "mfa",
