@@ -13,7 +13,7 @@
 - `1` - Budget based on total hours spend (`budgetHours` field)
 - `2` - Budget based on total amount spent (`budget` field)
 - `3` - Budget per user assigned to this project (see [User Assignments section](User%20Assignments.md))
-- `4` - Budget per task assigned to this project (see [Task Assignemnts section](Task%20Assignments.md))
+- `4` - Budget per task assigned to this project (see [Task Assignments section](Task%20Assignments.md))
 
 ### billBy
 
@@ -21,7 +21,7 @@
 - `1` - Bill by the hourly rate set on the client (see [Clients section](Clients.md))
 - `2` - Bill by the hourly rate set on the project (`hourlyRate` field)
 - `3` - Bill by the hourly rate set per user assigned (see [User Assignments section](User%20Assignments.md))
-- `4` - Bill by the hourly rate set per task assigned (see [Task Assignemnts section](Task%20Assignments.md))
+- `4` - Bill by the hourly rate set per task assigned (see [Task Assignments section](Task%20Assignments.md))
 
 
 ## Get All Projects
@@ -163,8 +163,8 @@ otherwise project is not deleted and you'll get a HTTP Response: 500 Could not d
 
 ## Assigning Users
 
-User assignments are managed through [User Assignemnts](User%20Assignemnts.md). 
+User assignments are managed through [User Assignments](User%20Assignments.md). 
 
 ## Assigning Tasks
 
-Task assignments are managed through [Task Assignemnts](Task%20Assignemnts.md).
+Task assignments are managed through [Task Assignments](Task%20Assignments.md).

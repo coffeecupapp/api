@@ -312,7 +312,7 @@ Perform a simple GET on the Profile Image URL to receive the image data.
 
 ## Assignments to Projects
 
-Assignments to projects are managed through [User Assignemnts](User%20Assignemnts.md). 
+Assignments to projects are managed through [User Assignments](User%20Assignments.md). 
 
 ## Employment Information
 
