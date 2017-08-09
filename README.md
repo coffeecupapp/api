@@ -12,7 +12,7 @@ Have a question about using the API? Have you noticed an error or omission in th
 
 ## Authorization
 
-All requests to the CoffeeCup API are made on the behalf of an actual user (see the [OAuth 2.0 Authentication](OAuth2.md) section for detail on authenticating your requests). You can use a regular user for requests against the [Time Tracking API](Sections/Time%20Tracking.md), but for private integrations accessing the Extended REST API we recommend creating a special admin user.
+All requests to the CoffeeCup API are made on the behalf of an actual user (see the [OAuth 2.0 Authentication](Authentication/OAuth2.md) section for detail on authenticating your requests). You can use a regular user for requests against the [Time Tracking API](Sections/Time%20Tracking.md), but for private integrations accessing the Extended REST API we recommend creating a special admin user.
 
 CoffeeCup will check your role on each request, and actions that are unavailable to you on the UI will be unavailable over the API as well. Administrators can generally access all API resources, and regular users are limited to their own timesheets and data.
 
