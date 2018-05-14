@@ -15,7 +15,7 @@
 
 ## Get All Clients
 
-`GET /v1/users`
+`GET /v1/clients`
 
 Example request
 
@@ -109,7 +109,7 @@ You need to post the following:
 ```json
 {
   "client": {
-    "name": "Ultra Motorradreifen UG (haftungsbeschr√§nkt)"
+    "name": "Ultra Motorradreifen UG (haftungsbeschr‰nkt)"
   }
 }
 ```
