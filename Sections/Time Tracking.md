@@ -30,7 +30,7 @@ HTTP Response: 200 Success
       "project": 2,
       "user": 2,
       "status": 1,
-      "spentAt": "2014-02-08T21:50:40.000Z",
+      "day": "2014-02-08",
       "starttime": "2014-02-08T21:50:40.000Z",
       "endtime": "2014-02-08T21:55:30.000Z",
       "duration": 65,
@@ -43,7 +43,7 @@ HTTP Response: 200 Success
       "project": 2,
       "user": 2,
       "status": 1,
-      "spentAt": "2014-02-08T21:50:40.000Z",
+      "day": "2014-02-08",
       "starttime": "2014-02-08T21:50:40.000Z",
       "endtime": "2014-02-08T21:55:30.000Z",
       "duration": 0,
@@ -104,14 +104,14 @@ HTTP Response: 200 Success
 ## Get time entries by Date ##
 To show only the time_entries that have a time after "2013-01-01 17:23", pass the UTC date value (URL encoded).
 
-`GET /v1/timeentries?where={"spentAt":{">=": "2013-01-01 17:23"}}`
+`GET /v1/timeentries?where={"day":{">=": "2013-01-01"}}`
 
 HTTP Response: 200 Success
 
 ## Get time entries For A Given Timeframe ##
 To show only the time_entries that have a time between "2013-01-01" and "2015-01-31" (UTC), pass these values (URL encoded).
 
-`GET /v1/timeentries?where={"spentAt":{">=": "2013-01-01 00:00", "<=": "2015-01-31 23:59"}}`
+`GET /v1/timeentries?where={"day":{">=": "2013-01-01", "<=": "2015-01-31"}}`
 
 HTTP Response: 200 Success
 
@@ -191,7 +191,7 @@ HTTP Response: 200 Success
     "project": 1,
     "user": 1,
     "status": 1,
-    "spentAt": null,
+    "day": null,
     "starttime": null,
     "endtime": null,
     "duration": 1337,
