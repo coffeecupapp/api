@@ -4,7 +4,6 @@
 
 The Time tracking API allows you to access and manipulate time entries in similar fashion to using the daily timesheet view. 
 This allows developers to create lightweight clients or widgets to track time beyond directly interacting with CoffeeCup through the web browser.
-For timestamps, the internally stored value is always in UTC (Universal Coordinated Time, traditionally known as Greenwich Mean Time, GMT).
 
 # Time Entries
 
@@ -31,9 +30,9 @@ HTTP Response: 200 Success
       "user": 2,
       "status": 1,
       "day": "2014-02-08",
-      "starttime": "2014-02-08T21:50:40.000Z",
-      "endtime": "2014-02-08T21:55:30.000Z",
-      "duration": 65,
+      "starttime": "14:49:00",
+      "endtime": "15:34:00",
+      "duration": 2700,
       "running": false,
       "comment": "Reifen tauschen",
       "id": 14
@@ -44,9 +43,9 @@ HTTP Response: 200 Success
       "user": 2,
       "status": 1,
       "day": "2014-02-08",
-      "starttime": "2014-02-08T21:50:40.000Z",
-      "endtime": "2014-02-08T21:55:30.000Z",
-      "duration": 0,
+      "starttime": "14:49:00",
+      "endtime": "15:34:00",
+      "duration": 2700,
       "running": false,
       "comment": "Rot streichen",
       "id": 15
