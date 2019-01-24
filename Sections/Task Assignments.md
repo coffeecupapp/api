@@ -74,7 +74,7 @@ HTTP Response: 200 Success
 
 ## Get A TaskAssignments
 
-`GET /v1/taskAssignments/#{taskAssignment_id}`
+`GET /v1/taskAssignments/{taskAssignment_id}`
 
 HTTP Response: 200 Success
 
@@ -113,7 +113,7 @@ You need to post the following:
 
 ## Update A TaskAssignments
 
-`PUT /v1/taskAssignments/#{taskAssignment_id}`
+`PUT /v1/taskAssignments/{taskAssignment_id}`
 
 HTTP Response: 200 OK
 
@@ -133,7 +133,7 @@ You may update selected attributes for a task assignment.
 **Archiving a task assignment cascades to time entries that are associated to both this project and task** (see [Time Tracking section](Time%20Tracking.md))
 You can't create new or edit existing entries for archived task assignments.
 
-`PUT /v1/taskAssignments/#{taskAssignment_id}`
+`PUT /v1/taskAssignments/{taskAssignment_id}`
 
 ```json
 {
@@ -147,7 +147,7 @@ HTTP Response: 200 OK
 
 ## Delete A TaskAssignments
 
-`DELETE /v1/taskAssignments/#{taskAssignment_id}`
+`DELETE /v1/taskAssignments/{taskAssignment_id}`
 
 If the project does not have time entries associated with this task CoffeeCup deletes it and returns
 HTTP Response: 200 OK

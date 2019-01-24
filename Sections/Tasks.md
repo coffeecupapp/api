@@ -76,7 +76,7 @@ HTTP Response: 200 Success
 
 ## Get A Task
 
-`GET /v1/tasks/#{task_id}`
+`GET /v1/tasks/{task_id}`
 
 HTTP Response: 200 Success
 
@@ -99,7 +99,7 @@ You need to post the following:
 
 ## Update A Task
 
-`PUT /v1/tasks/#{task_id}`
+`PUT /v1/tasks/{task_id}`
 
 HTTP Response: 200 OK
 
@@ -119,7 +119,7 @@ You may update selected attributes for a task.
 **Archiving a task cascades to task assignments associated to it** (see [Task Assignments Section](Task%20Assignments.md))
 You can't assign archived tasks to projects.
 
-`PUT /v1/tasks/#{task_id}`
+`PUT /v1/tasks/{task_id}`
 
 ```json
 {
@@ -133,7 +133,7 @@ HTTP Response: 200 OK
 
 ## Delete A Task
 
-`DELETE /v1/tasks/#{task_id}`
+`DELETE /v1/tasks/{task_id}`
 
 If task does not have associated time entries CoffeeCup deletes it and returns
 HTTP Response: 200 OK

@@ -261,7 +261,7 @@ HTTP Response: 200 Success
 
 ### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE USER
 
-`PUT /v1/users/#{user_id}`
+`PUT /v1/users/{user_id}`
 
 ```json
 {
@@ -276,14 +276,14 @@ HTTP Response: 200 OK
 
 ## Upload A Profile Image
 
-`POST /v1/files/upload/user_image/#{user_id}`
+`POST /v1/files/upload/user_image/{user_id}`
 
 HTTP Response: 200 OK
 
 When adding or updating an image, you don't need to post any JSON. Just post the image data like you would any multipart form data. Be sure to set the name of the post data to "upload" and set the "filename=" parameter:
 
 ```http
-Host: #{yoursubdomain}.coffeecupapp.com
+Host: {yoursubdomain}.coffeecupapp.com
 Authorization: Basic (insert your authentication string here)
 Content-Length: 456221
 Content-Type: multipart/form-data; boundary=------------------------------E19zNvXGzXaLvS5C
@@ -291,14 +291,14 @@ Content-Type: multipart/form-data; boundary=------------------------------E19zNv
 Content-Disposition: form-data; name="upload"; filename="DSC00039.JPG"
 Content-Type: image/jpeg
 
-#{ BINARY IMAGE DATA }
+{ BINARY IMAGE DATA }
 
 ------------------------------E19zNvXGzXaLvS5C
 ```
 
 ## GET The Users Profile Image
 
-`GET /v1/files/get/user_image/#{user_id}/#{size}.#{format}`
+`GET /v1/files/get/user_image/{user_id}/{size}.{format}`
 
 ```
 size: s, m, l

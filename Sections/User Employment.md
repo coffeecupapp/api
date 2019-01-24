@@ -74,7 +74,7 @@ HTTP Response: 200 Success
 
 ## Get A UserEmployment
 
-`GET /v1/userEmployments/#{userEmployment_id}`
+`GET /v1/userEmployments/{userEmployment_id}`
 
 HTTP Response: 200 Success
 
@@ -111,7 +111,7 @@ You need to post the following:
 
 ## Update A UserEmployments
 
-`PUT /v1/userEmployments/#{userEmployment_id}`
+`PUT /v1/userEmployments/{userEmployment_id}`
 
 HTTP Response: 200 OK
 
@@ -129,6 +129,6 @@ You may update selected attributes for a user employment.
 
 ## Delete A UserEmployments
 
-`DELETE /v1/userEmployments/#{userEmployment_id}`
+`DELETE /v1/userEmployments/{userEmployment_id}`
 
 HTTP Response: 200 OK

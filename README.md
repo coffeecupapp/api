@@ -34,7 +34,7 @@ When the rate limit is exceeded CoffeeCup will send an HTTP 503 status code. The
 
 Throughout our documentation you'll find the following set of notational conventions:
 
-* `#{expression}`: Should be substituted with the value of the expression. For example, `/#{project_id}` should be replaced with `/12345` (assuming your `project_id` is 12345)
+* `{expression}`: Should be substituted with the value of the expression. For example, `/{project_id}` should be replaced with `/12345` (assuming your `project_id` is 12345)
 
 * `...`: For brevity, we have skipped repetitive parts of the response.
 

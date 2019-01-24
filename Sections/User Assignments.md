@@ -74,7 +74,7 @@ HTTP Response: 200 Success
 
 ## Get A UserAssignments
 
-`GET /v1/userAssignments/#{userAssignment_id}`
+`GET /v1/userAssignments/{userAssignment_id}`
 
 HTTP Response: 200 Success
 
@@ -113,7 +113,7 @@ You need to post the following:
 
 ## Update A UserAssignments
 
-`PUT /v1/userAssignments/#{userAssignment_id}`
+`PUT /v1/userAssignments/{userAssignment_id}`
 
 HTTP Response: 200 OK
 
@@ -133,7 +133,7 @@ You may update selected attributes for a user assignment.
 **Archiving a user assignment cascades to time entries that are associated to both this project and user** (see [Time Tracking Section](Time%20Tracking.md))
 You can't create new or edit existing entries for archived user assignments.
 
-`PUT /v1/userAssignments/#{userAssignment_id}`
+`PUT /v1/userAssignments/{userAssignment_id}`
 
 ```json
 {
@@ -147,7 +147,7 @@ HTTP Response: 200 OK
 
 ## Delete A UserAssignments
 
-`DELETE /v1/userAssignments/#{userAssignment_id}`
+`DELETE /v1/userAssignments/{userAssignment_id}`
 
 If the project does not have time entries associated with this user CoffeeCup deletes it and returns
 HTTP Response: 200 OK

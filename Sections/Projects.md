@@ -99,7 +99,7 @@ HTTP Response: 200 Success
 
 ## Get A Single Project
 
-`GET /v1/projects/#{project_id}`
+`GET /v1/projects/{project_id}`
 
 HTTP Response: 200 Success
 
@@ -122,7 +122,7 @@ You need to post the following:
 
 ## Update A Project
 
-`PUT /v1/projects/#{project_id}`
+`PUT /v1/projects/{project_id}`
 
 HTTP Response: 200 OK
 
@@ -141,7 +141,7 @@ You may update selected attributes for a project.
 **Archiving a project cascades to task and user assignments associated to it** (see [Task Assignments](Task%20Assignments.md) and [User Assignments](User%20Assignments.md) Sections)
 You can't assign new tasks or users to archived projects.
 
-`PUT /v1/projects/#{project_id}`
+`PUT /v1/projects/{project_id}`
 
 ```json
 {
@@ -154,7 +154,7 @@ HTTP Response: 200 OK
 
 ## Delete A Project
 
-`DELETE /v1/projects/#{project_id}`
+`DELETE /v1/projects/{project_id}`
 
 If project does not have associated time entries or expenses CoffeeCup deletes it and returns
 HTTP Response: 200 OK

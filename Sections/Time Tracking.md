@@ -135,7 +135,7 @@ You may post the following
 
 ## Update a time entry ##
 
-`PUT /v1/timeEntries/#{time_entry_id}`
+`PUT /v1/timeEntries/{time_entry_id}`
 
 HTTP Response: 200 OK
 
@@ -169,7 +169,7 @@ HTTP Response: 200 OK
 
 ## STOP/PAUSE a running time entry ##
 
-`PUT /v1/timeEntries/#{time_entry_id}`
+`PUT /v1/timeEntries/{time_entry_id}`
 
 ```json
 {
@@ -203,7 +203,7 @@ HTTP Response: 200 Success
 
 ## STOP/PAUSE a running time entry and manually set the duration ##
 
-`PUT /v1/timeEntries/#{time_entry_id}`
+`PUT /v1/timeEntries/{time_entry_id}`
 
 ```json
 {
@@ -220,7 +220,7 @@ HTTP Response: 200 Success
 
 ## Delete a time entry ##
 
-`DELETE /v1/timeEntries/#{time_entry_id}`
+`DELETE /v1/timeEntries/{time_entry_id}`
 
 HTTP Response: 200 Success
 
@@ -228,7 +228,7 @@ HTTP Response: 200 Success
 
 ### TODO: DOKU WHAT WILL BE ARCHIVED ALONG WITH THE ENTRY, IF ANY
 
-`PUT /v1/timeEntries/#{time_entry_id}`
+`PUT /v1/timeEntries/{time_entry_id}`
 
 ```json
 {

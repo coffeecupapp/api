@@ -94,7 +94,7 @@ HTTP Response: 200 Success
 
 ## Get A Client
 
-`GET /v1/clients/#{client_id}`
+`GET /v1/clients/{client_id}`
 
 HTTP Response: 200 Success
 
@@ -116,7 +116,7 @@ You need to post the following:
 
 ## Update A Client
 
-`PUT /v1/clients/#{client_id}`
+`PUT /v1/clients/{client_id}`
 
 HTTP Response: 200 OK
 
@@ -136,7 +136,7 @@ You may update selected attributes for a client.
 **Archiving a client cascades to projects associated to them** (see Projects Section)
 You can't create new projects for archived clients.
 
-`PUT /v1/clients/#{client_id}`
+`PUT /v1/clients/{client_id}`
 
 ```json
 {
@@ -149,7 +149,7 @@ HTTP Response: 200 OK
 
 ## Delete A Client
 
-`DELETE /v1/clients/#{client_id}`
+`DELETE /v1/clients/{client_id}`
 
 If client does not have associated projects and/or time entries CoffeeCup deletes it and returns
 HTTP Response: 200 OK
@@ -159,14 +159,14 @@ otherwise client is not deleted and you'll get a HTTP Response: 500 Could not de
 
 ## Upload A Client Image
 
-`POST /v1/files/upload/client_image/#{user_id}`
+`POST /v1/files/upload/client_image/{user_id}`
 
 HTTP Response: 200 OK
 
 When adding or updating an image, you don't need to post any JSON. Just post the image data like you would any multipart form data. Be sure to set the name of the post data to "upload" and set the "filename=" parameter:
 
 ```http
-Host: #{yoursubdomain}.coffeecupapp.com
+Host: {yoursubdomain}.coffeecupapp.com
 Authorization: Basic (insert your authentication string here)
 Content-Length: 456221
 Content-Type: multipart/form-data; boundary=------------------------------E19zNvXGzXaLvS5C
@@ -174,14 +174,14 @@ Content-Type: multipart/form-data; boundary=------------------------------E19zNv
 Content-Disposition: form-data; name="upload"; filename="DSC00039.JPG"
 Content-Type: image/jpeg
 
-#{ BINARY IMAGE DATA }
+{ BINARY IMAGE DATA }
 
 ------------------------------E19zNvXGzXaLvS5C
 ```
 
 ## GET The Client's Profile Image
 
-`GET /v1/files/get/client_image/#{user_id}/#{size}.#{format}`
+`GET /v1/files/get/client_image/{user_id}/{size}.{format}`
 
 ```
 size: s, m, l
