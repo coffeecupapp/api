@@ -4,7 +4,7 @@
 
 ### status
 
-- `0` - Project archived
+- `0` - Project completed
 - `1` - Project active
 
 ### budgetBy
@@ -55,11 +55,11 @@ HTTP Response: 200 Success
       "id": 1
     },
     {
-      "client": 2,
+      "client": null, // null = internal project
       "color": 2,
       "status": 1,
       "name": "Projekt 2",
-      "comment": "schÃ¶nes Projekt",
+      "comment": "schönes Projekt",
       "code": "PR2",
       "billBy": 0,
       "budgetBy": 0,
@@ -79,19 +79,19 @@ HTTP Response: 200 Success
 }
 ```
 
-## Get Archived Projects Only
+## Get Completed Projects Only
 
 `GET /v1/projects?status[]=0`
 
 HTTP Response: 200 Success
 
-## Get Archived AND Non-Archived Projects (DEFAULT Behaviour)
+## Get Internal Projects Only
 
-`GET /v1/projects?status[]=0&status[]=1`
+`GET /v1/projects?client[]=null`
 
 HTTP Response: 200 Success
 
-## Get Non-Archived Projects Only
+## Get Active Projects Only
 
 `GET /v1/projects?status[]=1`
 
@@ -115,7 +115,8 @@ You need to post the following:
 ```json
 {
   "project": {
-    "name": "Motor X1337"
+    "name": "Motor X1337",
+    "code": "MX1337"
   }
 }
 ```
@@ -136,10 +137,10 @@ You may update selected attributes for a project.
 }
 ```
 
-## Archive A Project
+## Completing A Project
 
-**Archiving a project cascades to task and user assignments associated to it** (see [Task Assignments](Task%20Assignments.md) and [User Assignments](User%20Assignments.md) Sections)
-You can't assign new tasks or users to archived projects.
+**Completing a project cascades to task and user assignments associated to it** (see [Task Assignments](Task%20Assignments.md) and [User Assignments](User%20Assignments.md) Sections)
+You can't assign new tasks or users to completed projects. Also, no new time entries can be created for this project.
 
 `PUT /v1/projects/{project_id}`
 
