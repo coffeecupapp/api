@@ -59,7 +59,7 @@ HTTP Response: 200 Success
       "color": 2,
       "status": 1,
       "name": "Projekt 2",
-      "comment": "schönes Projekt",
+      "comment": "schï¿½nes Projekt",
       "code": "PR2",
       "billBy": 0,
       "budgetBy": 0,
@@ -87,7 +87,7 @@ HTTP Response: 200 Success
 
 ## Get Internal Projects Only
 
-`GET /v1/projects?client[]=null`
+`GET /v1/projects?where={"client":null}`
 
 HTTP Response: 200 Success
 
