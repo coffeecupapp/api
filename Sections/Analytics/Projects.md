@@ -3,50 +3,9 @@
 # Project Analytics
 
 
-`GET /v1/analytics/projects`
-
-##Multiple project analytics (sparse list):
-
-<code>
-GET /v1/analytics/projects
-</code>
-<code>
-GET /v1/analytics/projects?project[]=<b>PROJECT_ID</b>&project[]=<b>PROJECT_ID</b>
-</code>
-
-HTTP Response: 200 Success
-
-```json
-{
-  "analyticsProjects": [
-    {
-      "id": 78,
-      "project": 78,
-      "hours": {
-        "total": 75487.13638888889,
-        "spent": 60239.938888888886,
-        "nonBillable": 15247.1975,
-        "budget": null,
-        "outOfBudget": null,
-        "billed": 0
-      },
-      "amount": {
-        "spent": 180719.2486,
-        "budget": null,
-        "outOfBudget": null,
-        "billed": 0
-      }
-    }
-    /* ... */
-  ]
-}
-```
-
 ##Single project analytics (detailed):
 
-<code>
-GET /v1/analytics/projects?project=<b>PROJECT_ID</b>
-</code>
+`GET /v1/analytics/projects?project=<b>PROJECT_ID</b>`
 
 HTTP Response: 200 Success
 
@@ -117,5 +76,37 @@ HTTP Response: 200 Success
       /* ... */
     ]
   }
+}
+```
+
+##Multiple project analytics (sparse list):
+
+`GET /v1/analytics/projects?project[]=<b>PROJECT_ID</b>&project[]=<b>PROJECT_ID</b>`
+
+HTTP Response: 200 Success
+
+```json
+{
+  "analyticsProjects": [
+    {
+      "id": 78,
+      "project": 78,
+      "hours": {
+        "total": 75487.13638888889,
+        "spent": 60239.938888888886,
+        "nonBillable": 15247.1975,
+        "budget": null,
+        "outOfBudget": null,
+        "billed": 0
+      },
+      "amount": {
+        "spent": 180719.2486,
+        "budget": null,
+        "outOfBudget": null,
+        "billed": 0
+      }
+    }
+    /* ... */
+  ]
 }
 ```
