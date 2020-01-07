@@ -109,7 +109,7 @@ You need to post the following:
 ```json
 {
   "client": {
-    "name": "Ultra Motorradreifen UG (haftungsbeschränkt)"
+    "name": "Ultra Motorradreifen UG (haftungsbeschrï¿½nkt)"
   }
 }
 ```
@@ -192,3 +192,4 @@ format: jpg, png
 HTTP Response: 200 OK
 
 Perform a simple GET on the Client Image URL to receive the image data.
+
